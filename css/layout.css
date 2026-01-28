@@ -1,0 +1,97 @@
+/* layout.css — wide desktop canvas + subtle ambient */
+
+.page{ position: relative; z-index: 1; }
+
+.container{
+  width: min(var(--container), calc(100% - (var(--pad) * 2)));
+  margin: 0 auto;
+}
+.containerWide{
+  width: min(var(--containerWide), calc(100% - (var(--pad) * 2)));
+  margin: 0 auto;
+}
+
+.chapter{
+  position: relative;
+  padding: 160px 0;
+}
+@media (max-width: 820px){
+  .chapter{ padding: 96px 0; }
+}
+
+.ambient{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ambientGrid{
+  position:absolute;
+  inset:0;
+  opacity: .14;
+  background-image:
+    linear-gradient(to right, rgba(234,240,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(234,240,255,.05) 1px, transparent 1px);
+  background-size: 78px 78px;
+  mask-image: radial-gradient(closest-side at 50% 22%, rgba(0,0,0,.94), transparent 78%);
+}
+
+.ambientGlow{
+  position:absolute;
+  inset:-24%;
+  background:
+    radial-gradient(900px 700px at 18% 10%, rgba(68,227,255,.05), transparent 74%),
+    radial-gradient(1200px 900px at 82% 30%, rgba(167,139,250,.04), transparent 76%);
+  opacity: .22;
+  transform: translate3d(0,0,0);
+}
+
+.ambientVignette{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(1200px 900px at 50% 30%, transparent 40%, rgba(0,0,0,.80) 100%);
+  opacity: .98;
+}
+
+.scrollProgress{
+  position:absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(68,227,255,0), rgba(68,227,255,.70), rgba(68,227,255,0));
+  opacity: .55;
+}
+
+/* Typography blocks */
+.chapterTop{
+  max-width: 920px;
+  margin-bottom: 44px;
+}
+.chapterTitle{
+  margin: 0 0 10px 0;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.06;
+}
+.chapterLead{
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.65;
+}
+
+/* Rhythm line */
+.chapter::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(234,240,255,.09), transparent);
+  opacity: .22;
+}
+.chapterHero::before{ display:none; }

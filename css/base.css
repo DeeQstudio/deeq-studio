@@ -1,0 +1,72 @@
+/* base.css — anchored DeeQ Studio: black base, accents via elements */
+
+:root{
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --bg0: #020207;
+  --bg1: #03040B;
+
+  --ink: #EAF0FF;
+  --muted: rgba(234,240,255,.68);
+  --faint: rgba(234,240,255,.52);
+  --line: rgba(234,240,255,.12);
+
+  /* Accents (classy high-tech) */
+  --accent-blue:   #5B8CFF;
+  --accent-cyan:   #44E3FF;
+  --accent-violet: #A78BFA;
+
+  /* Green is “resolution” only (contact area) */
+  --accent-green:  #9CFF57;
+
+  --r1: 12px;
+  --r2: 14px;
+  --r3: 16px;
+
+  --container: 1180px;
+  --containerWide: 1560px;
+  --pad: 22px;
+
+  --ease: cubic-bezier(.22,.95,.20,1);
+  --ease2: cubic-bezier(.2,0,.1,1);
+
+  --tFast: 160ms;
+  --tMed: 420ms;
+  --tSlow: 980ms;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+html{
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body{
+  margin: 0;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg0));
+  color: var(--ink);
+  letter-spacing: .2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{ color: inherit; }
+img{ max-width: 100%; height: auto; display: block; }
+
+::selection{
+  background: rgba(68,227,255,.18);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

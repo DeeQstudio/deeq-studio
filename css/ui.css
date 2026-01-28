@@ -1,0 +1,54 @@
+/* ui.css — links + presence motion system (reversible) */
+
+.textLink{
+  display:inline-flex;
+  align-items:baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(234,240,255,.90);
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(68,227,255,.35);
+  transition:
+    color var(--tMed) var(--ease2),
+    border-color var(--tMed) var(--ease2),
+    transform var(--tFast) var(--ease2);
+}
+.textLink:hover{
+  color: rgba(234,240,255,.98);
+  border-bottom-color: rgba(91,140,255,.65);
+  transform: translateY(-1px);
+}
+.textLink.strong{
+  font-weight: 650;
+  border-bottom-width: 2px;
+}
+
+.heroSmall{
+  color: rgba(234,240,255,.58);
+  font-size: 13px;
+}
+
+.dot{ opacity: .55; }
+
+/* Presence base */
+[data-presence]{
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--tSlow) var(--ease),
+    transform var(--tSlow) var(--ease);
+  will-change: opacity, transform;
+}
+
+/* In-view */
+.is-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyboard focus */
+a:focus-visible{
+  outline: 2px solid rgba(68,227,255,.55);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
