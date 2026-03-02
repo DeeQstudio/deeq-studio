@@ -1,0 +1,84 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' role='img' aria-labelledby='title desc'>
+  <title id='title'>Commerce flow project placeholder</title>
+  <desc id='desc'>A realistic commerce page concept with hero content, product modules, and checkout context.</desc>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#f6f5f1'/>
+      <stop offset='1' stop-color='#eceae3'/>
+    </linearGradient>
+    <linearGradient id='photoA' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#9cb5bc'/>
+      <stop offset='1' stop-color='#708f98'/>
+    </linearGradient>
+    <linearGradient id='photoB' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#c6d3c8'/>
+      <stop offset='1' stop-color='#98a9a0'/>
+    </linearGradient>
+    <filter id='shadow' x='-20%' y='-20%' width='140%' height='140%'>
+      <feDropShadow dx='0' dy='20' stdDeviation='24' flood-color='#101319' flood-opacity='0.18'/>
+    </filter>
+    <pattern id='grain' width='120' height='120' patternUnits='userSpaceOnUse'>
+      <rect width='120' height='120' fill='transparent'/>
+      <circle cx='12' cy='20' r='0.6' fill='#101319' opacity='0.08'/>
+      <circle cx='86' cy='30' r='0.7' fill='#101319' opacity='0.08'/>
+      <circle cx='58' cy='78' r='0.7' fill='#101319' opacity='0.08'/>
+      <circle cx='104' cy='98' r='0.6' fill='#101319' opacity='0.08'/>
+      <circle cx='32' cy='100' r='0.6' fill='#101319' opacity='0.08'/>
+    </pattern>
+  </defs>
+
+  <rect width='1600' height='1000' fill='url(#bg)'/>
+  <rect x='76' y='74' width='1448' height='852' rx='20' fill='#fbfbf9' stroke='#d8d4ca' filter='url(#shadow)'/>
+  <rect x='76' y='74' width='1448' height='60' rx='20' fill='#f0eee8'/>
+  <circle cx='112' cy='104' r='7' fill='#d5d1c8'/>
+  <circle cx='136' cy='104' r='7' fill='#d5d1c8'/>
+  <circle cx='160' cy='104' r='7' fill='#d5d1c8'/>
+  <rect x='206' y='95' width='300' height='18' rx='9' fill='#ddd9d0'/>
+  <rect x='1110' y='94' width='84' height='16' rx='8' fill='#9398a1'/>
+  <rect x='1208' y='94' width='92' height='16' rx='8' fill='#9398a1'/>
+  <rect x='1314' y='94' width='170' height='20' rx='10' fill='#11161c'/>
+
+  <rect x='118' y='170' width='656' height='446' rx='16' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='146' y='204' width='132' height='14' rx='7' fill='#88909a'/>
+  <rect x='146' y='240' width='540' height='74' rx='12' fill='#12161c'/>
+  <rect x='146' y='326' width='488' height='54' rx='10' fill='#161b23'/>
+  <rect x='146' y='396' width='400' height='14' rx='7' fill='#737a84'/>
+  <rect x='146' y='422' width='370' height='14' rx='7' fill='#737a84'/>
+  <rect x='146' y='468' width='186' height='48' rx='24' fill='#0f141b'/>
+  <rect x='352' y='484' width='170' height='16' rx='8' fill='#8a909a'/>
+
+  <rect x='806' y='170' width='676' height='326' rx='16' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='836' y='202' width='214' height='14' rx='7' fill='#7b838d'/>
+  <rect x='836' y='232' width='612' height='232' rx='14' fill='url(#photoA)'/>
+  <rect x='862' y='258' width='240' height='18' rx='9' fill='rgba(255,255,255,0.82)'/>
+  <rect x='862' y='286' width='180' height='14' rx='7' fill='rgba(255,255,255,0.72)'/>
+  <rect x='1288' y='414' width='136' height='34' rx='17' fill='rgba(16,21,29,0.9)'/>
+
+  <rect x='806' y='516' width='676' height='306' rx='16' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='836' y='548' width='154' height='14' rx='7' fill='#7b838d'/>
+  <rect x='836' y='578' width='400' height='12' rx='6' fill='#9ca2ad'/>
+  <rect x='836' y='602' width='360' height='12' rx='6' fill='#9ca2ad'/>
+
+  <rect x='836' y='638' width='196' height='160' rx='12' fill='#f7f7f4' stroke='#e5e2da'/>
+  <rect x='1048' y='638' width='196' height='160' rx='12' fill='#f7f7f4' stroke='#e5e2da'/>
+  <rect x='1260' y='638' width='196' height='160' rx='12' fill='#f7f7f4' stroke='#e5e2da'/>
+
+  <rect x='858' y='658' width='152' height='86' rx='10' fill='url(#photoB)'/>
+  <rect x='1070' y='658' width='152' height='86' rx='10' fill='url(#photoA)'/>
+  <rect x='1282' y='658' width='152' height='86' rx='10' fill='url(#photoB)'/>
+
+  <rect x='858' y='756' width='112' height='10' rx='5' fill='#5f6671'/>
+  <rect x='1070' y='756' width='112' height='10' rx='5' fill='#5f6671'/>
+  <rect x='1282' y='756' width='112' height='10' rx='5' fill='#5f6671'/>
+
+  <rect x='118' y='636' width='656' height='186' rx='16' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='146' y='668' width='220' height='124' rx='12' fill='url(#photoB)'/>
+  <rect x='386' y='668' width='220' height='124' rx='12' fill='url(#photoA)'/>
+  <rect x='626' y='668' width='120' height='124' rx='12' fill='#f4f5f2' stroke='#e6e2d8'/>
+  <rect x='648' y='692' width='76' height='12' rx='6' fill='#808893'/>
+  <rect x='648' y='716' width='60' height='12' rx='6' fill='#808893'/>
+  <rect x='648' y='752' width='80' height='30' rx='15' fill='#10151c'/>
+
+  <rect width='1600' height='1000' fill='url(#grain)' opacity='0.18'/>
+</svg>
+

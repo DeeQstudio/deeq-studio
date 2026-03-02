@@ -2,203 +2,335 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
 
-  <title>DeeQ Studio — Design & Development</title>
-  <meta name="description" content="High-end websites & webshops. Calm engineering. Structured delivery." />
+  <title data-i18n="meta_title">DeeQ Studio - High-End Web Design and Media Studio</title>
+  <meta name="description" content="DeeQ Studio builds high-end websites with clear structure, smooth motion, and strong execution." data-i18n-content="meta_desc" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://deeqstudio.com/" />
 
-  <meta property="og:title" content="DeeQ Studio — Design & Development" />
-  <meta property="og:description" content="High-end websites & webshops. Calm engineering. Structured delivery." />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="./assets/dq.svg" />
+
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="DeeQ Studio - High-End Web Design and Media Studio" data-i18n-content="og_title" />
+  <meta property="og:description" content="Websites that use space, motion, and hierarchy with intent." data-i18n-content="og_desc" />
+  <meta property="og:image" content="https://deeqstudio.com/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://deeqstudio.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="preload" href="./assets/deeq-word.svg" as="image" />
 
-  <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/layout.css" />
-  <link rel="stylesheet" href="./css/ui.css" />
-  <link rel="stylesheet" href="./css/pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/base.css?v=5" />
+  <link rel="stylesheet" href="./css/layout.css?v=5" />
+  <link rel="stylesheet" href="./css/ui.css?v=5" />
+  <link rel="stylesheet" href="./css/pages.css?v=5" />
+  <link rel="stylesheet" href="./css/motion.css?v=5" />
+  <link rel="stylesheet" href="./css/desktop.css?v=5" />
+  <link rel="stylesheet" href="./css/mobile.css?v=5" />
 </head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip_link">Skip to content</a>
 
-<body class="deeq">
-  <!-- Ambient canvas -->
-  <div class="ambient" aria-hidden="true">
-    <div class="ambientGrid"></div>
-    <div class="ambientGlow"></div>
-    <div class="ambientVignette"></div>
-    <div class="scrollProgress"></div>
-  </div>
+  <header class="site-header" id="top">
+    <div class="header-shell">
+      <a class="wordmark-link" href="#top" aria-label="DeeQ Studio home" data-i18n-aria="nav_home_aria">
+        <img class="wordmark" src="./assets/deeq-word.svg" alt="DeeQ Studio" />
+      </a>
 
-  <main id="app" class="page">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="#services" data-i18n="nav_what">What we do</a>
+        <a class="nav-link" href="#work" data-i18n="nav_work">Work</a>
+        <a class="nav-link" href="#process" data-i18n="nav_why">Why DeeQ</a>
+        <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
 
-    <!-- HERO -->
-    <section class="chapter chapterHero" data-chapter="0">
-      <div class="container">
-        <div class="heroStack">
+      <div class="header-actions">
+        <a class="cta cta-nav" href="#contact" data-i18n="cta_start">Start a project</a>
+        <button class="menu-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" data-i18n-aria="nav_open_aria">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
 
-          <div class="heroBrand" data-presence="brand">
-            <img
-              src="./assets/deeq-studio.svg"
-              alt="DeeQ Studio"
-              class="brandLogo"
-              decoding="async"
-              data-presence="logo"
-            />
-            <div class="brandSub">Design &amp; development studio</div>
-          </div>
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <a class="mobile-link mobileLink" href="#services" data-i18n="nav_what">What we do</a>
+      <a class="mobile-link mobileLink" href="#work" data-i18n="nav_work">Work</a>
+      <a class="mobile-link mobileLink" href="#process" data-i18n="nav_why">Why DeeQ</a>
+      <a class="mobile-link mobileLink" href="#updates" data-i18n="nav_updates">Updates</a>
+      <a class="mobile-link mobileLink" href="#contact" data-i18n="nav_contact">Contact</a>
+      <a class="cta cta-main mobile-cta" href="mailto:info@deeqstudio.com" data-i18n="mobile_email">info@deeqstudio.com</a>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay" hidden></div>
+  </header>
 
-          <h1 class="heroTitle" data-presence="headline">
-            High-end websites &amp; webshops,<br />
-            built with calm precision.
-          </h1>
+  <main id="main">
+    <section class="hero-section anchor" id="hero">
+      <div class="hero-aura hero-aura-left" data-parallax="0.12" aria-hidden="true"></div>
+      <div class="hero-aura hero-aura-right" data-parallax="0.08" aria-hidden="true"></div>
 
-          <p class="heroLead" data-presence="lead">
-            Structured systems, premium detail, and ownership that stays calm.
-          </p>
+      <div class="hero-shell">
+        <p class="hero-kicker reveal r-rise" data-i18n="hero_kicker">High-end web design and media studio</p>
+        <h1 class="hero-title reveal r-rise" data-i18n="hero_title">Web experiences that make people stay, feel, and move.</h1>
+        <p class="hero-lead reveal r-rise" data-i18n="hero_lead">DeeQ Studio builds one clear story from first click to action, so people understand fast and keep going.</p>
 
-          <div class="heroLinks" data-presence="links">
-            <a class="textLink strong" href="#contact">Start a project</a>
-            <span class="dot">•</span>
-            <a class="textLink" href="mailto:info@deeqstudio.com">info@deeqstudio.com</a>
-          </div>
+        <div class="hero-actions reveal r-rise">
+          <a class="cta cta-main" href="#contact" data-i18n="cta_start">Start a project</a>
+          <a class="jump-link" href="#work" data-i18n="hero_see_work">See selected work</a>
+        </div>
 
+        <div class="hero-meta reveal r-fade" aria-label="Studio focus">
+          <span data-i18n="hero_meta_1">Brugge, Belgium</span>
+          <span data-i18n="hero_meta_2">Clear hierarchy</span>
+          <span data-i18n="hero_meta_3">Product motion</span>
         </div>
       </div>
+
+      <div class="hero-wordmark-wrap reveal r-rise">
+        <img class="hero-wordmark" src="./assets/deeq-word.svg" alt="DeeQ Studio wordmark" />
+      </div>
+
+      <a class="scroll-cue" href="#services" aria-label="Scroll to services" data-i18n="hero_scroll">Scroll</a>
     </section>
 
-    <!-- CAPABILITIES -->
-    <section class="chapter chapterCapabilities" data-chapter="1">
-      <div class="containerWide">
-        <div class="chapterTop">
-          <h2 class="chapterTitle" data-presence="title">What I build</h2>
-          <p class="chapterLead" data-presence="lead">
-            Only what needs to be done properly.
-          </p>
-        </div>
+    <section class="section services-section anchor" id="services">
+      <div class="section-shell">
+        <p class="section-intro reveal r-rise" data-i18n="services_intro">What we do</p>
+        <h2 class="section-title reveal r-rise" data-i18n="services_title">Built like a clear system. Felt like a premium product.</h2>
 
-        <div class="features">
-          <article class="feature" data-presence="feature-left">
-            <div class="featureText">
-              <div class="eyebrow">Websites</div>
-              <h3 class="featureH">Premium UI, no noise.</h3>
-              <p class="featureP">Typography, spacing and motion tuned for clarity.</p>
-            </div>
-            <div class="featureVisual shot shotA" aria-hidden="true"></div>
+        <div class="service-rail">
+          <article class="service-line reveal r-sweep">
+            <span class="service-index">01</span>
+            <h3 data-i18n="service_1_title">Websites that feel clear and premium</h3>
+            <p data-i18n="service_1_body">Landing pages and full sites that are clear, fast, and easy to trust.</p>
           </article>
 
-          <article class="feature reverse" data-presence="feature-right">
-            <div class="featureText">
-              <div class="eyebrow">Webshops</div>
-              <h3 class="featureH">Built for real drops.</h3>
-              <p class="featureP">Simple checkout flows backed by robust logic.</p>
-            </div>
-            <div class="featureVisual shot shotB" aria-hidden="true"></div>
+          <article class="service-line reveal r-sweep">
+            <span class="service-index">02</span>
+            <h3 data-i18n="service_2_title">Web apps people understand fast</h3>
+            <p data-i18n="service_2_body">Dashboards and user flows that make choices easy.</p>
           </article>
 
-          <article class="feature" data-presence="feature-left">
-            <div class="featureText">
-              <div class="eyebrow">Maintenance</div>
-              <h3 class="featureH">Stable updates.</h3>
-              <p class="featureP">Predictable changes without collateral damage.</p>
-            </div>
-            <div class="featureVisual shot shotC" aria-hidden="true"></div>
+          <article class="service-line reveal r-sweep">
+            <span class="service-index">03</span>
+            <h3 data-i18n="service_3_title">Media direction and ongoing support</h3>
+            <p data-i18n="service_3_body">From first release to updates, we keep quality sharp.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SIGNATURE MOMENT -->
-    <section class="chapter chapterSignature" data-chapter="1.5" aria-label="Signature moment">
-      <div class="containerWide">
-        <p class="signatureLine" data-signature>
-          DeeQ — like <span class="sigAccent">dequeue</span>.<br />
-          Order before speed.
-        </p>
-        <p class="signatureHint">
-          A studio name that reads like a process: calm, ordered, inevitable.
-        </p>
-      </div>
-    </section>
-
-    <!-- HOW -->
-    <section class="chapter chapterHow" data-chapter="2">
-      <div class="containerWide">
-        <div class="chapterTop">
-          <h2 class="chapterTitle" data-presence="title">How I work</h2>
-          <p class="chapterLead" data-presence="lead">
-            Decisions first. Then execution. Then polish.
-          </p>
+    <section class="section work-section anchor" id="work">
+      <div class="section-shell work-shell">
+        <div class="work-intro-block">
+          <p class="section-intro reveal r-rise" data-i18n="work_intro">Selected work</p>
+          <h2 class="section-title reveal r-rise" data-i18n="work_title">Every direction looks different. The standard never drops.</h2>
         </div>
 
-        <div class="timeline">
-          <div class="step" data-presence="step">
-            <div class="stepNum">01</div>
-            <div class="stepBody">
-              <div class="stepTitle">Scope &amp; constraints</div>
-              <div class="stepText">We lock what matters. Clarity prevents chaos later.</div>
+        <div class="work-body">
+          <div class="work-stage-wrap">
+            <div class="work-stage" id="workStage">
+              <div class="work-stage-media" data-parallax="0.02">
+                <img id="workImageCurrent" class="work-image is-current" src="./assets/img/work-kweker-ui.svg" alt="De Kweker commerce interface by DeeQ Studio" loading="lazy" />
+                <img id="workImageNext" class="work-image" src="./assets/img/work-kweker-ui.svg" alt="" aria-hidden="true" loading="lazy" />
+              </div>
+
+              <div class="work-stage-meta">
+                <p class="work-stage-kicker" id="workStageKicker">De Kweker</p>
+                <h3 class="work-stage-title" id="workStageTitle">Commerce journey and brand story in one clear interface.</h3>
+                <p class="work-stage-note" id="workStageNote">Product hierarchy, trust signals, and direct paths to checkout.</p>
+                <a class="work-stage-link" id="workStageLink" href="https://www.kwkr.be/" target="_blank" rel="noopener" data-i18n="work_visit_live">Visit live site</a>
+              </div>
             </div>
           </div>
 
-          <div class="step" data-presence="step">
-            <div class="stepNum">02</div>
-            <div class="stepBody">
-              <div class="stepTitle">System design</div>
-              <div class="stepText">Typography, spacing, components — consistent and scalable.</div>
-            </div>
-          </div>
+          <div class="work-track">
+            <button class="work-step is-active" type="button"
+              data-work-key="work_1"
+              data-work-image="./assets/img/work-kweker-ui.svg"
+              data-work-alt="De Kweker commerce interface by DeeQ Studio"
+              data-work-kicker="De Kweker"
+              data-work-title="Commerce journey and brand story in one clear interface."
+              data-work-note="Product hierarchy, trust signals, and direct paths to checkout."
+              data-work-link="https://www.kwkr.be/"
+              data-work-live="1">
+              <span class="work-step-index">01</span>
+              <span class="work-step-copy"><strong data-i18n="work_1_label">De Kweker</strong> <span data-i18n="work_1_copy">E-commerce flow rebuilt for faster decisions.</span></span>
+            </button>
 
-          <div class="step" data-presence="step">
-            <div class="stepNum">03</div>
-            <div class="stepBody">
-              <div class="stepTitle">Build &amp; refine</div>
-              <div class="stepText">Performance, accessibility, responsive detail. Motion stays subtle.</div>
-            </div>
-          </div>
+            <button class="work-step" type="button"
+              data-work-key="work_2"
+              data-work-image="./assets/img/work-studio-layout.svg"
+              data-work-alt="Editorial landing layout by DeeQ Studio"
+              data-work-kicker="Studio Landing"
+              data-work-title="Editorial landing system with bold hierarchy."
+              data-work-note="Large typography, clear section rhythm, and controlled calls to action."
+              data-work-link="#contact"
+              data-work-live="0">
+              <span class="work-step-index">02</span>
+              <span class="work-step-copy"><strong data-i18n="work_2_label">Studio landing</strong> <span data-i18n="work_2_copy">Editorial layout with strong visual hierarchy.</span></span>
+            </button>
 
-          <div class="step" data-presence="step">
-            <div class="stepNum">04</div>
-            <div class="stepBody">
-              <div class="stepTitle">Maintain</div>
-              <div class="stepText">Safe updates, clear changelog, predictable improvements.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <button class="work-step" type="button"
+              data-work-key="work_3"
+              data-work-image="./assets/img/work-webshop-ui.svg"
+              data-work-alt="Webshop architecture by DeeQ Studio"
+              data-work-kicker="Webshop"
+              data-work-title="Webshop architecture tuned for conversion clarity."
+              data-work-note="Navigation, filters, and product rhythm designed for confident choices."
+              data-work-link="#contact"
+              data-work-live="0">
+              <span class="work-step-index">03</span>
+              <span class="work-step-copy"><strong data-i18n="work_3_label">Webshop</strong> <span data-i18n="work_3_copy">Webshop architecture built for clear conversion.</span></span>
+            </button>
 
-    <!-- CONTACT (green “resolution” lives here only) -->
-    <section class="chapter chapterContact" id="contact" data-chapter="3">
-      <div class="containerWide">
-        <div class="contactBand">
-          <div class="contactTop" data-presence="contactTop">
-            <img src="./assets/deeq-studio.svg" alt="" class="contactLogo" aria-hidden="true" decoding="async" />
-            <div class="contactKicker">Ready when you are</div>
-          </div>
-
-          <h2 class="contactTitle" data-presence="headline">
-            Let’s build something that lasts.
-          </h2>
-
-          <p class="contactLead" data-presence="lead">
-            Send a short message. I’ll respond with a clear next step.
-          </p>
-
-          <div class="contactRow" data-presence="links">
-            <a class="textLink strong" href="mailto:info@deeqstudio.com">info@deeqstudio.com</a>
-            <span class="heroSmall">Response: 24–72h</span>
-          </div>
-
-          <div class="contactFine" data-presence="fine">
-            <span>© <span id="year"></span> DeeQ Studio</span>
-            <span class="dot">•</span>
-            <span>Bruges, BE</span>
+            <button class="work-step" type="button"
+              data-work-key="work_4"
+              data-work-image="./assets/img/work-dashboard-ui.svg"
+              data-work-alt="Dashboard system by DeeQ Studio"
+              data-work-kicker="Dashboard"
+              data-work-title="Dashboard system for operations and reporting."
+              data-work-note="Complex data translated into stable hierarchy and fast scanning."
+              data-work-link="#contact"
+              data-work-live="0">
+              <span class="work-step-index">04</span>
+              <span class="work-step-copy"><strong data-i18n="work_4_label">Dashboard</strong> <span data-i18n="work_4_copy">Dashboard systems made for quick team decisions.</span></span>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="section process-section anchor" id="process">
+      <div class="section-shell">
+        <p class="section-intro reveal r-rise" data-i18n="process_intro">Why DeeQ</p>
+        <h2 class="section-title reveal r-rise" data-i18n="process_title">Detail controls emotion. Emotion controls scroll.</h2>
+
+        <div class="process-flow">
+          <div class="process-row reveal r-sweep">
+            <span class="process-index">01</span>
+            <p data-i18n="process_1">Structure before styling. Always.</p>
+          </div>
+          <div class="process-row reveal r-sweep">
+            <span class="process-index">02</span>
+            <p data-i18n="process_2">Big visual impact with simple guidance.</p>
+          </div>
+          <div class="process-row reveal r-sweep">
+            <span class="process-index">03</span>
+            <p data-i18n="process_3">Motion guides attention, never distracts.</p>
+          </div>
+        </div>
+
+        <p class="process-signature reveal r-fade" data-i18n="process_signature">DeeQ - Everything in order. Nothing overwhelming.</p>
+      </div>
+    </section>
+
+    <section class="section updates-section anchor" id="updates">
+      <div class="section-shell">
+        <p class="section-intro reveal r-rise" data-i18n="updates_intro">Updates</p>
+        <h2 class="section-title reveal r-rise" data-i18n="updates_title">Build log from the studio.</h2>
+
+        <div class="updates-line reveal r-rise">
+          <span class="updates-label" data-i18n="updates_label">Now building</span>
+          <span class="updates-type-wrap" id="updatesTypeWrap" data-lines="interface systems in progress|conversion paths and page hierarchy|design QA on real devices|copy and UX clarity passes|performance tuning after release" aria-live="polite" aria-atomic="true">
+            <span class="updates-reserve" id="updatesReserve">interface systems in progress</span>
+            <span class="updates-type-layer">
+              <span class="updates-type" id="updatesType" data-i18n="updates_default">interface systems in progress</span>
+              <span class="updates-caret" aria-hidden="true"></span>
+            </span>
+          </span>
+        </div>
+
+        <p class="updates-note reveal r-fade" data-i18n="updates_note">Short build log of what we are refining this week.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section anchor" id="contact">
+      <div class="section-shell contact-shell">
+        <div class="contact-copy">
+          <p class="section-intro reveal r-rise" data-i18n="contact_intro">Contact</p>
+          <h2 class="section-title reveal r-rise" data-i18n="contact_title">Tell us what you need. We build it.</h2>
+          <p class="contact-lead reveal r-rise" data-i18n="contact_lead">You work directly with the studio from first idea to launch. Fast lines and clear ownership.</p>
+          <a class="contact-mail reveal r-rise" href="mailto:info@deeqstudio.com">info@deeqstudio.com</a>
+
+          <div class="contact-actions reveal r-rise">
+            <a class="cta cta-main" href="mailto:info@deeqstudio.com" data-i18n="contact_cta_email">Email DeeQ Studio</a>
+            <a class="jump-link" href="#work" data-i18n="contact_cta_review">Review work</a>
+          </div>
+
+          <p class="contact-meta reveal r-fade" data-i18n="contact_meta">Brugge, Belgium. Projects across Belgium and international teams.</p>
+        </div>
+
+        <div class="contact-founders">
+          <figure class="founder-unit founder-joey reveal r-rise">
+            <img class="founder-photo" src="./assets/img/joey.jpg" alt="Joey De Queecker" loading="lazy" />
+            <figcaption>
+              <strong data-i18n="founder_1_name">Joey De Queecker</strong>
+              <span data-i18n="founder_1_role">Founder and web designer</span>
+            </figcaption>
+          </figure>
+
+          <figure class="founder-unit reveal r-rise">
+            <img class="founder-photo" src="./assets/img/bert.png" alt="Bert Van Ryckeghem" loading="lazy" />
+            <figcaption>
+              <strong data-i18n="founder_2_name">Bert Van Ryckeghem</strong>
+              <span data-i18n="founder_2_role">Digital design and client care</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script type="module" src="./js/app.js"></script>
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <div class="footer-top">
+        <img class="footer-wordmark" src="./assets/deeq-word-white.svg" alt="DeeQ Studio" />
+        <img class="footer-mark" src="./assets/dq-white.svg" alt="DeeQ monogram" />
+      </div>
+
+      <p class="footer-statement" data-i18n="footer_statement">Web design and media systems with clear structure and strong execution.</p>
+
+      <div class="footer-links">
+        <a href="#services" data-i18n="nav_what">What we do</a>
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#process" data-i18n="nav_why">Why DeeQ</a>
+        <a href="mailto:info@deeqstudio.com">info@deeqstudio.com</a>
+      </div>
+
+      <div class="footer-bottom">
+        <a class="footer-back" href="#top" data-i18n="footer_back">Back to top</a>
+        <p class="footer-copy">&copy; <span id="year"></span> DeeQ Studio</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DeeQ Studio",
+    "url": "https://deeqstudio.com/",
+    "image": "https://deeqstudio.com/assets/og-cover.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brugge",
+      "addressRegion": "West-Vlaanderen",
+      "addressCountry": "BE"
+    },
+    "areaServed": ["Brugge", "West-Vlaanderen", "Belgium", "Europe", "Worldwide"],
+    "description": "Web design and media studio focused on clear systems, conversion flow, and premium execution."
+  }
+  </script>
+
+  <script src="./js/i18n.js?v=5"></script>
+  <script src="./js/motion.js?v=5"></script>
+  <script src="./js/app.js?v=5"></script>
 </body>
 </html>

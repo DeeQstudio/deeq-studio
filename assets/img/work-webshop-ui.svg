@@ -1,0 +1,92 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' role='img' aria-labelledby='title desc'>
+  <title id='title'>Webshop architecture project placeholder</title>
+  <desc id='desc'>A realistic webshop interface with filter system, product media, and conversion-focused actions.</desc>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#f5f4ef'/>
+      <stop offset='1' stop-color='#ebe8e1'/>
+    </linearGradient>
+    <linearGradient id='mediaA' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#d8e2e0'/>
+      <stop offset='1' stop-color='#b7cad1'/>
+    </linearGradient>
+    <linearGradient id='mediaB' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0' stop-color='#e5ddd2'/>
+      <stop offset='1' stop-color='#cbbdae'/>
+    </linearGradient>
+    <filter id='shadow' x='-20%' y='-20%' width='140%' height='140%'>
+      <feDropShadow dx='0' dy='20' stdDeviation='24' flood-color='#101319' flood-opacity='0.18'/>
+    </filter>
+    <pattern id='grain' width='120' height='120' patternUnits='userSpaceOnUse'>
+      <rect width='120' height='120' fill='transparent'/>
+      <circle cx='14' cy='18' r='0.6' fill='#101319' opacity='0.08'/>
+      <circle cx='86' cy='36' r='0.6' fill='#101319' opacity='0.08'/>
+      <circle cx='54' cy='72' r='0.6' fill='#101319' opacity='0.08'/>
+      <circle cx='100' cy='98' r='0.7' fill='#101319' opacity='0.08'/>
+      <circle cx='24' cy='102' r='0.7' fill='#101319' opacity='0.08'/>
+    </pattern>
+  </defs>
+
+  <rect width='1600' height='1000' fill='url(#bg)'/>
+  <rect x='74' y='72' width='1452' height='856' rx='18' fill='#fcfcfa' stroke='#d8d5cc' filter='url(#shadow)'/>
+  <rect x='74' y='72' width='1452' height='64' rx='18' fill='#f0eee8'/>
+  <rect x='116' y='96' width='228' height='18' rx='9' fill='#747b85'/>
+  <rect x='628' y='96' width='86' height='14' rx='7' fill='#8d939d'/>
+  <rect x='726' y='96' width='86' height='14' rx='7' fill='#8d939d'/>
+  <rect x='824' y='96' width='86' height='14' rx='7' fill='#8d939d'/>
+  <rect x='922' y='96' width='86' height='14' rx='7' fill='#8d939d'/>
+  <rect x='1288' y='90' width='198' height='26' rx='13' fill='#11161c'/>
+
+  <rect x='116' y='166' width='248' height='744' rx='16' fill='#f7f6f1' stroke='#dfdbd2'/>
+  <rect x='146' y='206' width='130' height='14' rx='7' fill='#656d77'/>
+  <rect x='146' y='236' width='182' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='256' width='166' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='304' width='130' height='14' rx='7' fill='#656d77'/>
+  <rect x='146' y='334' width='182' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='354' width='166' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='402' width='130' height='14' rx='7' fill='#656d77'/>
+  <rect x='146' y='432' width='182' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='452' width='166' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='500' width='130' height='14' rx='7' fill='#656d77'/>
+  <rect x='146' y='530' width='182' height='10' rx='5' fill='#a6aba5'/>
+  <rect x='146' y='550' width='166' height='10' rx='5' fill='#a6aba5'/>
+
+  <rect x='390' y='166' width='1118' height='122' rx='16' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='420' y='204' width='596' height='20' rx='10' fill='#6b727d'/>
+  <rect x='1042' y='198' width='154' height='30' rx='15' fill='#11161c'/>
+  <rect x='1214' y='198' width='154' height='30' rx='15' fill='#e3dfd6'/>
+  <rect x='1386' y='198' width='92' height='30' rx='15' fill='#e3dfd6'/>
+
+  <rect x='390' y='312' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='666' y='312' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='942' y='312' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='1218' y='312' width='290' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+
+  <rect x='414' y='338' width='212' height='150' rx='12' fill='url(#mediaA)'/>
+  <rect x='690' y='338' width='212' height='150' rx='12' fill='url(#mediaB)'/>
+  <rect x='966' y='338' width='212' height='150' rx='12' fill='url(#mediaA)'/>
+  <rect x='1244' y='338' width='238' height='150' rx='12' fill='url(#mediaB)'/>
+
+  <rect x='414' y='502' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='690' y='502' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='966' y='502' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='1244' y='502' width='154' height='12' rx='6' fill='#5f6771'/>
+
+  <rect x='390' y='602' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='666' y='602' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='942' y='602' width='260' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+  <rect x='1218' y='602' width='290' height='268' rx='14' fill='#ffffff' stroke='#dfdbd2'/>
+
+  <rect x='414' y='628' width='212' height='150' rx='12' fill='url(#mediaB)'/>
+  <rect x='690' y='628' width='212' height='150' rx='12' fill='url(#mediaA)'/>
+  <rect x='966' y='628' width='212' height='150' rx='12' fill='url(#mediaB)'/>
+  <rect x='1244' y='628' width='238' height='150' rx='12' fill='url(#mediaA)'/>
+
+  <rect x='414' y='792' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='690' y='792' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='966' y='792' width='136' height='12' rx='6' fill='#5f6771'/>
+  <rect x='1244' y='792' width='154' height='12' rx='6' fill='#5f6771'/>
+
+  <rect width='1600' height='1000' fill='url(#grain)' opacity='0.18'/>
+</svg>
+
