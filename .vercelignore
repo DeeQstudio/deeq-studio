@@ -2,5 +2,6 @@ _edgetmp/
 _screens/
 agent.md
 README_DEPLOY.txt
-
-.vercel
+.git/
+.gitignore
+.vercel/
