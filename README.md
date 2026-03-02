@@ -10,5 +10,4 @@ Corporate website for DeeQStudio.
 
 ## Deploy
 
-This project is linked to Vercel project `deeq-studio` under team `de-kwekers-projects`.
-
+This project is linked to Vercel project `deeq-studio` under team `deeqstudio`.

@@ -34,5 +34,4 @@ foreach ($s in $sites) {
 }
 
 Write-Host "`n== Vercel team projects ==" -ForegroundColor Cyan
-cmd /c npx --yes vercel projects ls --scope de-kwekers-projects
-
+cmd /c npx --yes vercel projects ls --scope deeqstudio

@@ -6,7 +6,7 @@ This file defines the operational baseline for managing all DeeQStudio websites.
 
 - Business owner (operational): DeeQStudio
 - Current GitHub owner: `DeKweker` (temporary account name)
-- Current Vercel team: `de-kwekers-projects`
+- Current Vercel team: `deeqstudio`
 
 Target when legal setup is finalized:
 
@@ -68,4 +68,3 @@ Do not merge multiple client websites into one Vercel project.
 - Rollback path:
   - Re-attach domain to previous project
   - Redeploy previous known-good commit
-

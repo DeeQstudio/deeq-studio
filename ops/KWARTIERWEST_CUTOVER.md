@@ -5,7 +5,7 @@ Goal: move `kwartierwest.be` from the old Kwartier West Vercel account to the ce
 ## Current state
 
 - New centralized GitHub repo exists: `https://github.com/DeKweker/kwartier-west`
-- New centralized Vercel project exists: `de-kwekers-projects/kwartier-west`
+- New centralized Vercel project exists: `deeqstudio/kwartier-west`
 - New project production URL: `https://kwartier-west.vercel.app`
 - Domain add in central team currently blocked:
   - `Not authorized to use kwartierwest.be (403)`
@@ -21,14 +21,14 @@ This means the domain is still claimed by the old Vercel account/project.
   - `kwartierwest.be`
   - `www.kwartierwest.be`
 
-2. Immediately in centralized Vercel team (`de-kwekers-projects`):
+2. Immediately in centralized Vercel team (`deeqstudio`):
 - Add domains to project `kwartier-west`:
   - `kwartierwest.be`
   - `www.kwartierwest.be`
 
 3. Verify domain status:
-- `vercel domains inspect kwartierwest.be --scope de-kwekers-projects`
-- `vercel domains inspect www.kwartierwest.be --scope de-kwekers-projects`
+- `vercel domains inspect kwartierwest.be --scope deeqstudio`
+- `vercel domains inspect www.kwartierwest.be --scope deeqstudio`
 
 4. Verify HTTPS routing:
 - `https://kwartierwest.be` redirects/serves correctly
@@ -51,4 +51,3 @@ This means the domain is still claimed by the old Vercel account/project.
 1. Remove domains from centralized `kwartier-west` project.
 2. Re-add the domains to old project in old account.
 3. Confirm old site responds again on both root and www.
-
