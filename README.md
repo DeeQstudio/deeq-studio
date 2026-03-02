@@ -6,6 +6,7 @@ Corporate website for DeeQStudio.
 
 - Platform model: `ops/PLATFORM_BLUEPRINT.md`
 - Kwartier West cutover: `ops/KWARTIERWEST_CUTOVER.md`
+- GitHub owner cutover: `ops/GITHUB_OWNER_MIGRATION.md`
 - Audit script: `ops/audit-platform.ps1`
 
 ## Deploy
