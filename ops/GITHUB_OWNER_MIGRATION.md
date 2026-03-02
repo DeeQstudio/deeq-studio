@@ -1,6 +1,8 @@
-# GitHub Owner Migration (DeKweker -> deeqstudio)
+# GitHub Owner Migration (DeKweker -> DeeQstudio)
 
-Goal: move the GitHub owner identity to `deeqstudio` while keeping all websites live.
+Goal: move the GitHub owner identity to `DeeQstudio` while keeping all websites live.
+
+Status: completed on 2026-03-02.
 
 ## Important
 
@@ -14,7 +16,7 @@ In GitHub:
 
 1. Open `Settings` (account settings, not repo settings).
 2. Go to `Account` -> `Change username`.
-3. Change from `DeKweker` to `deeqstudio` (if available).
+3. Change from `DeKweker` to `DeeQstudio` (if available).
 4. Confirm warnings and complete rename.
 
 ## Step 2: run local owner cutover script
@@ -24,7 +26,7 @@ From PowerShell:
 ```powershell
 & "C:\Users\queec\ALLE_WEBSITES\clients\deeq-studio\ops\github-owner-cutover.ps1" `
   -OldOwner "DeKweker" `
-  -NewOwner "deeqstudio"
+  -NewOwner "DeeQstudio"
 ```
 
 This updates local `origin` remotes for:
@@ -37,7 +39,7 @@ This updates local `origin` remotes for:
 ## Step 3: verify GitHub repos
 
 ```powershell
-gh repo list deeqstudio --limit 100
+gh repo list DeeQstudio --limit 100
 ```
 
 Expected repos:
@@ -52,7 +54,7 @@ Expected repos:
 For each local project folder:
 
 ```powershell
-cmd /c npx --yes vercel git connect https://github.com/deeqstudio/<repo>.git --scope deeqstudio
+cmd /c npx --yes vercel git connect https://github.com/DeeQstudio/<repo>.git --scope deeqstudio
 ```
 
 Projects:
@@ -67,4 +69,3 @@ Projects:
 - `https://deeqstudio.com`
 - `https://www.kwkr.be`
 - `https://www.kwartierwest.be`
-

@@ -5,7 +5,7 @@ This file defines the operational baseline for managing all DeeQStudio websites.
 ## Owner model
 
 - Business owner (operational): DeeQStudio
-- Current GitHub owner: `DeKweker` (temporary account name)
+- Current GitHub owner: `DeeQstudio`
 - Current Vercel team: `deeqstudio`
 
 Target when legal setup is finalized:
@@ -13,16 +13,16 @@ Target when legal setup is finalized:
 - GitHub Organization: `deeqstudio`
 - Vercel Team: `deeqstudio`
 
-Until then, all websites are centrally managed under the current owner/team.
+All websites are centrally managed under the current owner/team.
 
 ## Website inventory
 
 | Site | Domain(s) | GitHub repo | Vercel project | Status |
 |---|---|---|---|---|
-| DeeQ Studio | `deeqstudio.com`, `www.deeqstudio.com` | `DeKweker/deeq-studio` | `deeq-studio` | Live on centralized setup |
-| De Kweker | `kwkr.be`, `www.kwkr.be` | `DeKweker/dekweker-website` | `dekweker-website` | Live on centralized setup |
-| Kwartier West | `kwartierwest.be`, `www.kwartierwest.be` | `DeKweker/kwartier-west` | `kwartier-west` | New centralized project live, domain cutover pending old account release |
-| Appartement Hilde | `appartement-hilde.vercel.app` | `DeKweker/penthouse-hilde` | `appartement-hilde` | Live on centralized setup |
+| DeeQ Studio | `deeqstudio.com`, `www.deeqstudio.com` | `DeeQstudio/deeq-studio` | `deeq-studio` | Live on centralized setup |
+| De Kweker | `kwkr.be`, `www.kwkr.be` | `DeeQstudio/dekweker-website` | `dekweker-website` | Live on centralized setup |
+| Kwartier West | `kwartierwest.be`, `www.kwartierwest.be` | `DeeQstudio/kwartier-west` | `kwartier-west` | Live on centralized setup |
+| Appartement Hilde | `appartement-hilde.vercel.app` | `DeeQstudio/penthouse-hilde` | `appartement-hilde` | Live on centralized setup |
 
 ## Standard architecture (per website)
 

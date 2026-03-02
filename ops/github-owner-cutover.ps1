@@ -1,6 +1,6 @@
 param(
   [string]$OldOwner = "DeKweker",
-  [string]$NewOwner = "deeqstudio",
+  [string]$NewOwner = "DeeQstudio",
   [string]$Root = "C:\Users\queec\ALLE_WEBSITES\clients"
 )
 

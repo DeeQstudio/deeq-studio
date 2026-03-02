@@ -2,16 +2,14 @@
 
 Goal: move `kwartierwest.be` from the old Kwartier West Vercel account to the centralized DeeQStudio-managed Vercel team with zero content loss and minimal/no downtime.
 
+Status: completed on 2026-03-02.
+
 ## Current state
 
-- New centralized GitHub repo exists: `https://github.com/DeKweker/kwartier-west`
+- New centralized GitHub repo exists: `https://github.com/DeeQstudio/kwartier-west`
 - New centralized Vercel project exists: `deeqstudio/kwartier-west`
 - New project production URL: `https://kwartier-west.vercel.app`
-- Domain add in central team currently blocked:
-  - `Not authorized to use kwartierwest.be (403)`
-  - `Not authorized to use www.kwartierwest.be (403)`
-
-This means the domain is still claimed by the old Vercel account/project.
+Domain mapping is now active in the centralized team/project.
 
 ## Safe cutover steps
 
