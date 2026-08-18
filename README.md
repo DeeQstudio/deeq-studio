@@ -34,3 +34,7 @@ Every indexable route has its own title, description, canonical URL and social m
 ## Assets
 
 Only real DeeQ Studio / client assets are used. No fictitious client work is included.
+
+## V4.2 case direction
+
+The De Kweker and Kwartier West presentations are deliberately project-specific. De Kweker is handled as a photographic artist platform centred on `kwkr.be`, media, live and booking. Kwartier West keeps its own graphic collective identity, using the supplied OG image and wordmark with a separate event/booking presentation. Shared engineering does not force a shared case layout.

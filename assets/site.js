@@ -128,7 +128,7 @@
   const kwkrSite = $('[data-kwkr-site]');
   const kwkrRelease = $('[data-kwkr-release]');
   const kwkrLive = $('[data-kwkr-live]');
-  const kwkrStory = $('.case-kwkr [data-case-story]');
+  const kwkrStory = $('[data-kwkr-story]');
   function renderKwkr(p) {
     if (reducedMotion || !kwkrCase) return;
     const settle = smooth(.02,.38,p);
@@ -148,7 +148,7 @@
       kwkrLive.style.opacity = String(1 - smooth(.62,.76,p));
     }
     if (kwkrStory) {
-      kwkrStory.style.transform = `translateY(${(1 - story) * 100}%)`;
+      kwkrStory.style.transform = `translateY(${(1 - story) * 105}%)`;
       kwkrStory.style.opacity = String(story);
     }
   }
@@ -157,7 +157,7 @@
   const kwOg = $('[data-kw-og]');
   const kwWord = $('[data-kw-wordmark]');
   const kwSite = $('[data-kw-site]');
-  const kwStory = $('.case-kw [data-case-story]');
+  const kwStory = $('[data-kw-story]');
   function renderKw(p) {
     if (reducedMotion || !kwCase) return;
     const breathe = smooth(.02,.28,p);
@@ -181,7 +181,7 @@
       kwSite.style.transform = `translateY(${mix(16,0,reveal)}vh) scale(${mix(.86,1,reveal)})`;
     }
     if (kwStory) {
-      kwStory.style.transform = `translateY(${(1 - story) * 100}%)`;
+      kwStory.style.transform = `translateX(${(1 - story) * 101}%)`;
       kwStory.style.opacity = String(story);
     }
   }
