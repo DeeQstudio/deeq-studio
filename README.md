@@ -1,26 +1,36 @@
-# DeeQ Studio — production static build
+# DeeQ Studio — production website
 
-This folder is intentionally dependency-free. There is no build step and no package manager requirement.
+Static, dependency-free production build for `deeqstudio.com`.
 
-## Deploy to the existing DeeQ Studio repository
-1. Keep the repository's hidden `.git` folder.
-2. Replace the current website files with the contents of this folder.
-3. Open the repository in VS Code.
-4. Preview locally with VS Code Live Server, or run `python3 -m http.server 8080` from the project root and open `http://localhost:8080`.
-5. Commit and push. The root `index.html` is ready for a static Vercel deployment.
+## Deploy
 
-## Production assets included
-- Exact DeeQ Studio wordmark extracted from the supplied logo reference.
-- DeeQ D/Q favicon system: SVG, ICO, 16/32/48/180/192/512 PNGs and Apple touch icon.
-- Open Graph / social preview image.
-- Web app manifest.
-- robots.txt and sitemap.xml.
-- Branded 404 page.
-- Real Kwartier West OG image and exact supplied white wordmark.
-- Real De Kweker assets from the supplied KWKR project.
+1. Keep the existing `.git/` folder in your local DeeQ Studio repository.
+2. Replace the previous public website files with the contents of this package.
+3. Open the repository folder in VS Code.
+4. Run `git status` and inspect the changes.
+5. Commit and push. Vercel can serve the site directly; no npm install or build command is required.
 
-## No external runtime dependencies
-The page uses HTML, CSS and a small amount of vanilla JavaScript. No external animation library, font CDN, analytics script or third-party runtime is required.
+## URL architecture
 
-## Before changing content
-The two client cases are deliberately limited to the two real live DeeQ projects: kwkr.be and kwartierwest.be. Do not add filler clients, fake statistics, fake testimonials or placeholder case imagery.
+The primary navigation uses real crawlable routes instead of hash navigation:
+
+- `/work`
+- `/work/de-kweker`
+- `/work/kwartier-west`
+- `/services`
+- `/services/web-design`
+- `/services/identity`
+- `/services/digital-care`
+- `/process`
+- `/contact`
+- `/nl/webdesign-brugge`
+
+Section IDs may still exist inside documents for accessibility and scripting, but public navigation does not expose `#work`-style URLs.
+
+## SEO foundations
+
+Every indexable route has its own title, description, canonical URL and social metadata. `sitemap.xml` contains the routed pages. The English web-design service and Dutch/Flemish Bruges page use language alternates.
+
+## Assets
+
+Only real DeeQ Studio / client assets are used. No fictitious client work is included.

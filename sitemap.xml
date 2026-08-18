@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://deeqstudio.com/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://deeqstudio.com/</loc></url>
+  <url><loc>https://deeqstudio.com/work</loc></url>
+  <url><loc>https://deeqstudio.com/work/de-kweker</loc></url>
+  <url><loc>https://deeqstudio.com/work/kwartier-west</loc></url>
+  <url><loc>https://deeqstudio.com/services</loc></url>
+  <url><loc>https://deeqstudio.com/services/web-design</loc></url>
+  <url><loc>https://deeqstudio.com/services/identity</loc></url>
+  <url><loc>https://deeqstudio.com/services/digital-care</loc></url>
+  <url><loc>https://deeqstudio.com/process</loc></url>
+  <url><loc>https://deeqstudio.com/contact</loc></url>
+  <url><loc>https://deeqstudio.com/nl/webdesign-brugge</loc></url>
 </urlset>
