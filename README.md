@@ -1,19 +1,20 @@
-# DeeQ Studio — production website
+# DeeQ Studio — live release
 
-Static, dependency-free production build for `deeqstudio.com`.
+Production website for `deeqstudio.com`. Static, dependency-free HTML/CSS/JS, prepared for direct deployment on Vercel.
 
 ## Deploy
 
 1. Keep the existing `.git/` folder in your local DeeQ Studio repository.
-2. Replace the previous public website files with the contents of this package.
+2. Replace the previous website files with the contents of this package.
 3. Open the repository folder in VS Code.
 4. Run `git status` and inspect the changes.
-5. Commit and push. Vercel can serve the site directly; no npm install or build command is required.
+5. Commit and push. No `npm install` or build command is required.
 
-## URL architecture
+`vercel.json` enables clean public URLs such as `/work`, `/services/web-design` and `/contact`.
 
-The primary navigation uses real crawlable routes instead of hash navigation:
+## Public routes
 
+- `/`
 - `/work`
 - `/work/de-kweker`
 - `/work/kwartier-west`
@@ -25,16 +26,17 @@ The primary navigation uses real crawlable routes instead of hash navigation:
 - `/contact`
 - `/nl/webdesign-brugge`
 
-Section IDs may still exist inside documents for accessibility and scripting, but public navigation does not expose `#work`-style URLs.
+## Production notes
 
-## SEO foundations
+- Only real DeeQ Studio, De Kweker and Kwartier West assets are used.
+- De Kweker and Kwartier West have project-specific case direction rather than a shared visual template.
+- Service and brand-system showcases use finished project work instead of temporary mockups.
+- The approved DeeQ Studio Open Graph artwork is used for general DeeQ routes; project cases retain project-specific social imagery.
+- The DQ favicon system includes ICO, SVG, size-specific PNGs, Apple Touch and maskable PWA assets.
+- Canonical URLs, titles, descriptions, social metadata, sitemap and robots are included.
+- Motion remains progressively enhanced and preserves complete readable content when `prefers-reduced-motion` is enabled.
+- Domain, code and assets are presented as client-owned; ongoing care remains optional.
 
-Every indexable route has its own title, description, canonical URL and social metadata. `sitemap.xml` contains the routed pages. The English web-design service and Dutch/Flemish Bruges page use language alternates.
+## Before a live push
 
-## Assets
-
-Only real DeeQ Studio / client assets are used. No fictitious client work is included.
-
-## V4.2 case direction
-
-The De Kweker and Kwartier West presentations are deliberately project-specific. De Kweker is handled as a photographic artist platform centred on `kwkr.be`, media, live and booking. Kwartier West keeps its own graphic collective identity, using the supplied OG image and wordmark with a separate event/booking presentation. Shared engineering does not force a shared case layout.
+Do not commit local Vercel caches, screenshots, QA exports or operating-system files. The supplied production folder intentionally contains none of these.

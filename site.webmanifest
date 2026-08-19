@@ -1,11 +1,11 @@
 {
   "name": "DeeQ Studio",
   "short_name": "DeeQ",
-  "description": "Websites, identity and digital care.",
+  "description": "Web design, creative development, identity and digital care from Bruges, Belgium.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#080808",
-  "theme_color": "#080808",
+  "background_color": "#050505",
+  "theme_color": "#050505",
   "icons": [
     {
       "src": "/assets/icon-192.png",
