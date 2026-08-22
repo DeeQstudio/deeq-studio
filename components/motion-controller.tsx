@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const revealSelectors = [
-  ".statement > *", ".workPair > header", ".projectWorld", ".capabilities > *",
+  ".workPair > header", ".capabilities > *",
   ".contactCta > *", ".pageHero > *", ".workIndexItem > *", ".serviceList > a",
   ".editorial > *", ".processList > *", ".contactPanel > *", ".caseNarrative > *",
   ".kwekerGallery > *", ".kwManifesto > *", ".kwClose > *", ".nextCase > *",
