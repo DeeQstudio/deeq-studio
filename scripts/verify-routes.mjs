@@ -48,6 +48,12 @@ try {
     if (response.headers.get("x-content-type-options") !== "nosniff") throw new Error(`${path}: nosniff header is missing`);
     if (response.headers.get("referrer-policy") !== "strict-origin-when-cross-origin") throw new Error(`${path}: referrer policy is missing`);
     if (response.headers.has("x-powered-by")) throw new Error(`${path}: framework disclosure header is present`);
+    const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)];
+    if (jsonLdBlocks.length === 0) throw new Error(`${path}: structured data is missing`);
+    const schemas = jsonLdBlocks.map((match) => JSON.parse(match[1]));
+    if (path.startsWith("/work/") && !schemas.some((schema) => schema["@graph"]?.some((item) => item["@type"] === "CreativeWork"))) {
+      throw new Error(`${path}: project CreativeWork schema is missing`);
+    }
     console.log(`ok ${path}`);
   }
   const missing = await fetch(`${origin}/route-that-does-not-exist`);

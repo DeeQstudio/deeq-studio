@@ -3,7 +3,7 @@ import { JsonLd } from "@/components/json-ld";
 import { MotionController } from "@/components/motion-controller";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { organizationSchema } from "@/lib/schema";
+import { siteSchema } from "@/lib/schema";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <SiteFooter />
         <MotionController />
-        <JsonLd data={organizationSchema} />
+        <JsonLd data={siteSchema} />
       </body>
     </html>
   );
