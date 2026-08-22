@@ -1,7 +1,8 @@
 import { spawn } from "node:child_process";
 
 const port = 3210;
-const origin = `http://127.0.0.1:${port}`;
+const externalOrigin = process.env.VERIFY_BASE_URL?.replace(/\/$/, "");
+const origin = externalOrigin ?? `http://127.0.0.1:${port}`;
 const routes = [
   ["/", "DeeQ Studio | Web Design, Development & Digital Care in Bruges"],
   ["/work", "Selected Work | DeeQ Studio"],
@@ -16,10 +17,12 @@ const routes = [
   ["/nl/webdesign-brugge", "Webdesign Brugge | DeeQ Studio"],
 ];
 
-const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "-p", String(port)], {
-  stdio: ["ignore", "pipe", "pipe"],
-  env: { ...process.env, NODE_ENV: "production" },
-});
+const server = externalOrigin
+  ? undefined
+  : spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "-p", String(port)], {
+      stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, NODE_ENV: "production" },
+    });
 
 const waitForServer = async () => {
   for (let attempt = 0; attempt < 40; attempt += 1) {
@@ -33,7 +36,7 @@ const waitForServer = async () => {
 };
 
 try {
-  await waitForServer();
+  if (!externalOrigin) await waitForServer();
   for (const [path, expectedTitle] of routes) {
     const response = await fetch(`${origin}${path}`);
     const html = await response.text();
@@ -59,6 +62,13 @@ try {
   const missing = await fetch(`${origin}/route-that-does-not-exist`);
   if (missing.status !== 404) throw new Error(`unknown route: expected 404, received ${missing.status}`);
   console.log("ok 404");
+
+  const verification = await fetch(`${origin}/googled62ab7e3a23715db.html`);
+  const verificationText = (await verification.text()).trim();
+  if (verification.status !== 200 || verificationText !== "google-site-verification: googled62ab7e3a23715db.html") {
+    throw new Error("Google Search Console verification file is missing or invalid");
+  }
+  console.log("ok Google verification");
 } finally {
-  server.kill();
+  server?.kill();
 }
