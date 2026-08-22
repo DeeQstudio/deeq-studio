@@ -19,7 +19,7 @@ export default function HomePage() {
     <>
       <SpatialHero />
 
-      <section className="statement"><p className="eyebrow">The standard</p><h2>Not a site you still have to <em>finish after launch.</em></h2><p>Responsive behaviour, accessibility, performance, metadata, browser details and a clean handoff belong to the work—not to a repair list afterwards.</p></section>
+      <section className="studioStandard"><div className="standardRail" aria-hidden="true"><span>Responsive</span><span>Accessible</span><span>Performant</span><span>Production-ready</span></div><div className="standardCopy"><p className="eyebrow">The standard</p><h2><span>Not a site</span><span>you still have to</span><em>finish after launch.</em></h2><p>Responsive behaviour, accessibility, performance, metadata, browser details and a clean handoff belong to the work—not to a repair list afterwards.</p></div></section>
 
       <section className="workPair" aria-labelledby="work-title">
         <header><p className="eyebrow">Selected work · live</p><h2 id="work-title">Two clients.<br /><em>Two different worlds.</em></h2></header>
@@ -35,7 +35,7 @@ export default function HomePage() {
         </article>
       </section>
 
-      <section className="capabilities"><header><p className="eyebrow">What DeeQ can own</p><h2>Direction, design and delivery.</h2></header><div><Link href="/services/web-design"><span>Web design & development</span><p>Strategy, responsive interfaces, creative development, accessibility, SEO and production delivery.</p></Link><Link href="/services/identity"><span>Identity & content</span><p>Visual systems, art direction and content that hold together beyond one screen.</p></Link><Link href="/services/digital-care"><span>Digital care</span><p>Maintenance, launches and ongoing improvements without technical lock-in.</p></Link></div></section>
+      <section className="capabilities instrumentPanel"><header><p className="eyebrow">What DeeQ can own</p><h2>Direction, design and delivery.</h2><div className="instrumentDial" aria-hidden="true"><i /><span>One accountable studio</span></div></header><div><Link className="capabilityDesign" href="/services/web-design"><small>01 / Structure</small><span>Web design & development</span><p>Strategy, responsive interfaces, creative development, accessibility, SEO and production delivery.</p><b aria-hidden="true"><i /><i /><i /></b></Link><Link className="capabilityIdentity" href="/services/identity"><small>02 / Expression</small><span>Identity & content</span><p>Visual systems, art direction and content that hold together beyond one screen.</p><b aria-hidden="true">Aa</b></Link><Link className="capabilityCare" href="/services/digital-care"><small>03 / Continuity</small><span>Digital care</span><p>Maintenance, launches and ongoing improvements without technical lock-in.</p><b aria-hidden="true"><i /></b></Link></div></section>
       <ContactCta>Have a world that needs a digital home?</ContactCta>
     </>
   );
