@@ -25,10 +25,12 @@ export default function HomePage() {
         <header><p className="eyebrow">Selected work · live</p><h2 id="work-title">Two clients.<br /><em>Two different worlds.</em></h2></header>
         <article className="projectWorld kwekerWorld">
           <Image src={kweker.image} alt={kweker.imageAlt} fill sizes="100vw" />
+          <span className="kwekerEdition" aria-hidden="true">KWKR<br /><small>Official platform</small></span>
           <div><p>{kweker.eyebrow}</p><h3>{kweker.name}</h3><p>{kweker.summary}</p><Link href="/work/de-kweker">Enter the case</Link></div>
         </article>
         <article className="projectWorld kwartierWorld">
           <Image src={kwartier.image} alt={kwartier.imageAlt} fill sizes="100vw" />
+          <span className="kwShutter kwShutterOne" aria-hidden="true" /><span className="kwShutter kwShutterTwo" aria-hidden="true" />
           <div><Image className="kwLogo" src="/media/kwartier-west-wordmark.png" alt="Kwartier West" width={804} height={185} /><p>{kwartier.summary}</p><Link href="/work/kwartier-west">Enter the case</Link></div>
         </article>
       </section>
