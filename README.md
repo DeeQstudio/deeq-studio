@@ -31,7 +31,7 @@ npm run test:e2e
 
 `verify:routes` starts the production server on port 3210 and checks every public content route, metadata title, canonical URL, heading count and the 404 response.
 
-The Playwright suite runs the production build in desktop and mobile Chromium. It covers all public routes, 320–430 px layouts, horizontal overflow, mobile-menu keyboard behavior, reduced motion and serious/critical WCAG violations on representative pages.
+The Playwright suite runs the production build in desktop and mobile Chromium. It covers all public routes, 320–430 px layouts, horizontal overflow, mobile-menu keyboard behavior, reduced motion, serious/critical WCAG violations and local browser budgets for LCP, CLS, scripts and images.
 
 ## Public routes
 

@@ -43,6 +43,11 @@ try {
     if (title !== expectedTitle) throw new Error(`${path}: unexpected title ${JSON.stringify(title)}`);
     if (h1Count !== 1) throw new Error(`${path}: expected one h1, received ${h1Count}`);
     if (!html.includes(`rel="canonical"`)) throw new Error(`${path}: canonical is missing`);
+    if (!html.includes(`name="description"`)) throw new Error(`${path}: description is missing`);
+    if (!html.includes(`property="og:image"`)) throw new Error(`${path}: Open Graph image is missing`);
+    if (response.headers.get("x-content-type-options") !== "nosniff") throw new Error(`${path}: nosniff header is missing`);
+    if (response.headers.get("referrer-policy") !== "strict-origin-when-cross-origin") throw new Error(`${path}: referrer policy is missing`);
+    if (response.headers.has("x-powered-by")) throw new Error(`${path}: framework disclosure header is present`);
     console.log(`ok ${path}`);
   }
   const missing = await fetch(`${origin}/route-that-does-not-exist`);
