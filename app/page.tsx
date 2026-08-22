@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactCta } from "@/components/contact-cta";
+import { SpatialHero } from "@/components/spatial-hero";
 import { projects } from "@/content/projects";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -16,18 +17,7 @@ export default function HomePage() {
   const kwartier = projects["kwartier-west"];
   return (
     <>
-      <section className="homeHero">
-        <div className="heroCopy">
-          <p className="eyebrow">Web design & creative development · Bruges, Belgium</p>
-          <h1>Good work<br />should <em>move.</em></h1>
-          <p>DeeQ designs and develops distinctive digital homes for businesses, artists and organisations—clear to use, built to last and recognisably theirs.</p>
-          <div className="heroActions"><Link className="button" href="/work">See the work</Link><Link className="textLink" href="/contact">Start a project</Link></div>
-        </div>
-        <Link className="heroProject" href="/work/de-kweker" aria-label="View the De Kweker case">
-          <Image src={kweker.image} alt={kweker.imageAlt} fill priority sizes="(max-width: 820px) 86vw, 52vw" />
-          <span>{kweker.eyebrow}</span><strong>kwkr.be</strong>
-        </Link>
-      </section>
+      <SpatialHero />
 
       <section className="statement"><p className="eyebrow">The standard</p><h2>Not a site you still have to <em>finish after launch.</em></h2><p>Responsive behaviour, accessibility, performance, metadata, browser details and a clean handoff belong to the work—not to a repair list afterwards.</p></section>
 
