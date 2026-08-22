@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import { ContactCta } from "@/components/contact-cta";
+import { PageHero } from "@/components/page-hero";
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = pageMetadata({title:"How DeeQ Studio Works",description:"A clear web design and development process from direction to production and handoff.",path:"/process"});
+const steps=["Bring the rough version","Direction before production","Build in the open","QA like it is live","Handoff or ongoing care"];
+export default function ProcessPage(){return <><PageHero eyebrow="How it works" title="Less mystery." accent="More progress." lead="A senior process should reduce the amount of project management the client has to do—not create more of it."/><section className="processList"><header><p className="eyebrow">The process</p><h2>Clear enough to feel easy.</h2></header><ol>{steps.map((step,index)=><li key={step}><span>0{index+1}</span><h3>{step}</h3><p>{["An existing site, a rough idea or the bottleneck is enough. First we define the real problem.","Structure, priorities and visual direction become tangible while large decisions are still easy to change.","You see real screens and real progress. Feedback lands before a mystery reveal at the end.","Responsive behaviour, keyboard use, motion preferences, metadata, links and edge cases are checked before launch.","Take the keys with a clean handoff or keep DeeQ close. Ownership remains clear either way."][index]}</p></li>)}</ol></section><ContactCta>You bring the problem. We make the next step clear.</ContactCta></>}
