@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -55,6 +56,12 @@ export function SpatialHero() {
           <span className="wordmarkGhost wordmarkGhostOne" />
           <span className="wordmarkGhost wordmarkGhostTwo" />
           <span className="spatialWordmarkType"><strong>DeeQ</strong><span>Studio</span></span>
+        </div>
+        <div className="mobileConstruction" aria-hidden="true">
+          <span className="mobileGrid" />
+          <span className="mobileD">D</span><span className="mobileQ">Q</span>
+          <div className="mobileProjectFrame"><Image src="/media/kwkr-hero.webp" alt="" fill sizes="82vw" /><i>Image</i><b>Interface</b></div>
+          <span className="mobileBlueprint">FORM / GRID / IMAGE / INTERFACE</span>
         </div>
         <div className="spatialIntro">
           <p className="eyebrow">Independent design & creative development · Bruges</p>
