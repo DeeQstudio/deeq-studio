@@ -9,41 +9,51 @@ type SceneProps = { progress: MutableRefObject<number> };
 
 function Instrument({ progress }: SceneProps) {
   const assembly = useRef<THREE.Group>(null);
-  const core = useRef<THREE.Mesh>(null);
+  const layerRefs = useRef<Array<THREE.Group | null>>([]);
+  const shapes = useMemo(() => {
+    const d = new THREE.Shape();
+    d.moveTo(-1.55, -1.55); d.lineTo(-1.55, 1.55); d.lineTo(-0.55, 1.55);
+    d.bezierCurveTo(1.05, 1.55, 1.15, -1.55, -0.55, -1.55); d.closePath();
+    const dHole = new THREE.Path();
+    dHole.moveTo(-0.72, -0.82); dHole.lineTo(-0.72, 0.82); dHole.lineTo(-0.42, 0.82);
+    dHole.bezierCurveTo(0.38, 0.82, 0.42, -0.82, -0.42, -0.82); dHole.closePath();
+    d.holes.push(dHole);
+    const q = new THREE.Shape(); q.absarc(0, 0, 1.5, 0, Math.PI * 2, false);
+    const qHole = new THREE.Path(); qHole.absarc(0, 0, 0.76, 0, Math.PI * 2, true); q.holes.push(qHole);
+    return { d, q };
+  }, []);
   const materials = useMemo(() => ({
-    glass: new THREE.MeshPhysicalMaterial({ color: "#9adffd", transmission: 0.72, roughness: 0.12, metalness: 0.05, thickness: 1.2, transparent: true, opacity: 0.55 }),
-    metal: new THREE.MeshStandardMaterial({ color: "#b8c2c9", roughness: 0.24, metalness: 0.92 }),
-    dark: new THREE.MeshStandardMaterial({ color: "#080a0b", roughness: 0.18, metalness: 0.72 }),
-    light: new THREE.MeshStandardMaterial({ color: "#a6defa", emissive: "#61c9ff", emissiveIntensity: 2.2, toneMapped: false }),
+    ink: new THREE.MeshStandardMaterial({ color: "#202426", roughness: 0.42, metalness: 0.5 }),
+    paper: new THREE.MeshStandardMaterial({ color: "#eee9dc", roughness: 0.76, metalness: 0.02 }),
+    blue: new THREE.MeshStandardMaterial({ color: "#9bdcf8", roughness: 0.28, metalness: 0.18 }),
   }), []);
 
   useFrame((state, delta) => {
     const p = progress.current;
     if (assembly.current) {
-      assembly.current.rotation.y = THREE.MathUtils.damp(assembly.current.rotation.y, -0.48 + p * 1.08, 4, delta);
-      assembly.current.rotation.x = THREE.MathUtils.damp(assembly.current.rotation.x, 0.12 - p * 0.28, 4, delta);
-      assembly.current.position.z = THREE.MathUtils.damp(assembly.current.position.z, -0.5 + p * 1.05, 4, delta);
-      assembly.current.position.x = THREE.MathUtils.damp(assembly.current.position.x, p > 0.58 ? -1.35 : 0.4, 3, delta);
+      assembly.current.rotation.y = THREE.MathUtils.damp(assembly.current.rotation.y, -0.26 + p * 0.52, 4, delta);
+      assembly.current.rotation.x = THREE.MathUtils.damp(assembly.current.rotation.x, 0.09 - p * 0.16, 4, delta);
+      assembly.current.position.x = THREE.MathUtils.damp(assembly.current.position.x, p > 0.6 ? -1.25 : 0.5, 3, delta);
     }
-    if (core.current) core.current.rotation.z = p * Math.PI * 0.55;
-    state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, -0.25 + p * 0.5, 3, delta);
+    layerRefs.current.forEach((layer, index) => {
+      if (!layer) return;
+      const spread = (index - 1) * p;
+      layer.position.z = THREE.MathUtils.damp(layer.position.z, spread * 0.9, 4, delta);
+      layer.position.y = THREE.MathUtils.damp(layer.position.y, Math.abs(spread) * -0.08, 4, delta);
+    });
+    state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, -0.18 + p * 0.32, 3, delta);
     state.camera.lookAt(0, 0, 0);
   });
 
-  const layers = [-0.82, -0.42, 0, 0.42, 0.82];
   return (
-    <group ref={assembly} position={[0.4, 0, -0.5]}>
-      {layers.map((x, index) => (
-        <mesh key={x} position={[x, 0, (index - 2) * 0.16]} rotation={[0, 0, index % 2 ? 0.04 : -0.035]} material={index === 2 ? materials.dark : materials.glass}>
-          <boxGeometry args={[0.7, 3.45, index === 2 ? 0.22 : 0.08]} />
-        </mesh>
+    <group ref={assembly} position={[0.5, 0, 0]} scale={0.82}>
+      {[materials.paper, materials.blue, materials.ink].map((material, index) => (
+        <group key={index} ref={(node) => { layerRefs.current[index] = node; }} position={[0, 0, (index - 1) * 0.18]}>
+          <mesh position={[-1.35, 0, 0]} material={material}><extrudeGeometry args={[shapes.d, { depth: 0.14, bevelEnabled: true, bevelSize: 0.035, bevelThickness: 0.035, bevelSegments: 3 }]} /></mesh>
+          <mesh position={[1.35, 0, 0]} material={material}><extrudeGeometry args={[shapes.q, { depth: 0.14, bevelEnabled: true, bevelSize: 0.035, bevelThickness: 0.035, bevelSegments: 3 }]} /></mesh>
+          <mesh position={[2.28, -1.03, 0.12]} rotation={[0, 0, -0.68]} material={material}><boxGeometry args={[0.28, 1.48, 0.18]} /></mesh>
+        </group>
       ))}
-      <mesh ref={core} position={[0, 0, 0.55]} material={materials.metal}>
-        <torusGeometry args={[1.22, 0.12, 18, 96, Math.PI * 1.72]} />
-      </mesh>
-      <mesh position={[0.74, -1.15, 0.68]} material={materials.light}>
-        <capsuleGeometry args={[0.075, 1.5, 8, 16]} />
-      </mesh>
     </group>
   );
 }
@@ -51,10 +61,10 @@ function Instrument({ progress }: SceneProps) {
 export default function DeeQScene({ progress }: SceneProps) {
   return (
     <div className="spatialCanvas" aria-hidden="true">
-      <Canvas camera={{ position: [0, 0, 6.3], fov: 32 }} dpr={[1, 1.6]} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}>
-        <ambientLight intensity={0.32} />
-        <spotLight position={[4, 5, 6]} intensity={55} angle={0.32} penumbra={0.9} color="#d9f3ff" />
-        <pointLight position={[-4, -1, 3]} intensity={18} color="#2a8fbf" />
+      <Canvas camera={{ position: [0, 0, 7.4], fov: 34 }} dpr={[1, 1.6]} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}>
+        <ambientLight intensity={0.82} />
+        <spotLight position={[3, 5, 6]} intensity={58} angle={0.46} penumbra={0.9} color="#fff8e8" />
+        <pointLight position={[-4, -2, 4]} intensity={15} color="#9bdcf8" />
         <Instrument progress={progress} />
       </Canvas>
     </div>
