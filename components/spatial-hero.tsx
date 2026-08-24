@@ -1,28 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-
-const DeeQScene = dynamic(() => import("@/components/spatial-hero-scene"), {
-  ssr: false,
-  loading: () => null,
-});
+import { useEffect, useRef } from "react";
 
 export function SpatialHero() {
   const root = useRef<HTMLElement>(null);
   const progress = useRef(0);
-  const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const coarse = window.matchMedia("(pointer: coarse)");
-    const updateCapability = () => setCanRender(!reduced.matches && !coarse.matches && window.innerWidth >= 760);
-    updateCapability();
-    reduced.addEventListener("change", updateCapability);
-    coarse.addEventListener("change", updateCapability);
-
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -39,8 +25,6 @@ export function SpatialHero() {
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
     return () => {
-      reduced.removeEventListener("change", updateCapability);
-      coarse.removeEventListener("change", updateCapability);
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) cancelAnimationFrame(frame);
@@ -51,17 +35,11 @@ export function SpatialHero() {
     <section className="spatialHero" ref={root} aria-labelledby="hero-title">
       <div className="spatialHeroSticky">
         <div className="spatialAtmosphere" aria-hidden="true" />
-        {canRender && <DeeQScene progress={progress} />}
-        <div className="spatialWordmark" aria-hidden="true">
-          <span className="wordmarkGhost wordmarkGhostOne" />
-          <span className="wordmarkGhost wordmarkGhostTwo" />
-          <span className="spatialWordmarkType"><strong>DeeQ</strong><span>Studio</span></span>
-        </div>
-        <div className="mobileConstruction" aria-hidden="true">
-          <span className="mobileGrid" />
-          <span className="mobileD">D</span><span className="mobileQ">Q</span>
-          <div className="mobileProjectFrame"><Image src="/media/kwkr-hero.webp" alt="" fill sizes="82vw" /><i>Image</i><b>Interface</b></div>
-          <span className="mobileBlueprint">FORM / GRID / IMAGE / INTERFACE</span>
+        <div className="logoSequence" aria-hidden="true">
+          <div className="logoField logoFieldBase"><Image src="/media/deeq-wordmark-white.png" alt="" width={762} height={149} priority /></div>
+          <div className="logoField logoFieldBlue"><Image src="/media/deeq-wordmark-white.png" alt="" width={762} height={149} priority /></div>
+          <span className="logoSweep" />
+          <p><span>Direction</span><span>Design</span><span>Development</span></p>
         </div>
         <div className="spatialIntro">
           <p className="eyebrow">Independent design & creative development · Bruges</p>
@@ -71,7 +49,7 @@ export function SpatialHero() {
           <p>DeeQ gives every organisation its own visual system—not an agency template with a different logo.</p>
           <div><Link className="button" href="/work">Explore selected work</Link><Link className="textLink" href="/contact">Start a project</Link></div>
         </div>
-        <div className="spatialIndex" aria-hidden="true"><span>Scroll to construct</span><b>01</b><i /></div>
+        <div className="spatialIndex" aria-hidden="true"><span>Scroll to reveal</span><b>01</b><i /></div>
       </div>
     </section>
   );
