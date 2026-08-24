@@ -58,7 +58,7 @@
 
 /* Each project world owns a different visual grammar. */
 .projectWorld{view-timeline-name:--project-world;view-timeline-axis:block}
-.kwekerWorld{border-radius:2px;background:#151713}.kwekerWorld>img{transform:scale(1.08);transform-origin:50% 35%}
+.kwekerWorld{border-radius:2px;background:#151713}.kwekerWorld>img{object-position:50% top;transform:scale(1.02);transform-origin:50% top}
 .kwekerEdition{position:absolute;z-index:2;right:clamp(18px,4vw,64px);top:clamp(18px,5vw,72px);padding:22px 25px;background:#eee9dc;color:#111;box-shadow:0 24px 60px rgba(0,0,0,.3);font-size:clamp(28px,4vw,58px);font-weight:700;line-height:.75;letter-spacing:-.06em;transform:rotate(4deg)}
 .kwekerEdition small{font-size:8px;line-height:1;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
 .kwartierWorld{isolation:isolate}.kwShutter{position:absolute;z-index:0;top:0;bottom:0;width:26%;background:#cf1013;mix-blend-mode:multiply}.kwShutterOne{left:0}.kwShutterTwo{right:0;background:#080808}.kwartierWorld>div{z-index:2}.kwartierWorld .kwLogo{filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
@@ -70,7 +70,7 @@
   .kwShutterTwo{animation:kw-shutter-right linear both;animation-timeline:--project-world;animation-range:entry 10% cover 65%}
   .kwartierWorld .kwLogo{animation:kw-type-lock linear both;animation-timeline:--project-world;animation-range:entry 25% cover 62%}
 }
-@keyframes kweker-photo-drift{from{transform:scale(1.16) translateY(-3%)}to{transform:scale(1.03) translateY(3%)}}
+@keyframes kweker-photo-drift{from{transform:scale(1.025)}to{transform:scale(1)}}
 @keyframes kweker-note{from{transform:translate(35%,28%) rotate(11deg)}to{transform:translate(0,0) rotate(4deg)}}
 @keyframes kw-image-lock{from{transform:scale(1.16);filter:brightness(.25) saturate(.45)}to{transform:scale(1);filter:brightness(.48) saturate(1)}}
 @keyframes kw-shutter-left{from{transform:translateX(-102%)}to{transform:translateX(0)}}
