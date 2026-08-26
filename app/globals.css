@@ -223,3 +223,66 @@
 .motionReady .pageHero>.pageHeroSignal[data-reveal].isRevealed{opacity:.09}
 @media(max-width:820px){.motionReady .pageHero>.pageHeroSignal[data-reveal].isRevealed{opacity:.13}}
 @media(prefers-reduced-motion:reduce){.motionReady [data-reveal]{clip-path:none!important}}
+
+/* Experience pass: motion is an enhancement, explicitly authored per element. */
+.motionReady [data-motion][data-reveal]{
+  opacity:0;
+  transform:var(--motion-from,translateY(18px));
+  clip-path:var(--motion-clip,none);
+  transition:opacity .65s var(--ease),transform .85s var(--ease),clip-path .9s var(--ease);
+}
+.motionReady [data-motion][data-reveal].isRevealed{opacity:1;transform:none;clip-path:inset(0)}
+[data-motion="signal"]{--motion-from:scaleX(.96);transform-origin:center}
+[data-motion="title"],[data-motion="copy-left"],[data-motion="image-left"]{--motion-from:translateX(-28px)}
+[data-motion="copy"],[data-motion="copy-right"],[data-motion="image-right"]{--motion-from:translateX(28px)}
+[data-motion^="image"]{--motion-clip:inset(0 7% 0 0)}
+[data-motion="image-right"]{--motion-clip:inset(0 0 0 7%)}
+
+/* The official wordmark stays the subject through the complete introduction. */
+.spatialHero{height:175svh}
+.logoSequence{
+  top:39%;
+  width:min(72vw,1080px);
+  transform:translate(-50%,-50%) scale(calc(.92 + var(--hero-progress) * .08));
+  opacity:clamp(.16,calc((.96 - var(--hero-progress)) * 3),1);
+}
+.spatialIntro{bottom:7vh;opacity:clamp(0,calc((.56 - var(--hero-progress)) * 4),1)}
+.spatialResolve{bottom:8vh;opacity:clamp(0,calc((var(--hero-progress) - .52) * 3.2),1)}
+.logoSequence p{opacity:min(clamp(0,calc((var(--hero-progress) - .12) * 5),1),clamp(0,calc((.76 - var(--hero-progress)) * 4),1))}
+.logoSweep{opacity:min(clamp(0,calc((var(--hero-progress) - .04) * 8),1),clamp(0,calc((.72 - var(--hero-progress)) * 5),1))}
+
+/* Essential case material never depends on experimental scroll timelines. */
+.kwekerFrames figure,.kwSystemPoster,.kwSystem h2{animation:none!important}
+.kwClose{min-height:auto}
+
+@media(max-width:820px){
+  .spatialHero{height:145svh}
+  .logoSequence{top:25%;width:88vw;transform:translate(-50%,-50%) scale(calc(.96 + var(--hero-progress) * .04));opacity:clamp(.18,calc((.88 - var(--hero-progress)) * 4),1)}
+  .logoSequence p{top:calc(100% + 18px)}
+  .spatialIntro{bottom:8vh;opacity:clamp(0,calc((.58 - var(--hero-progress)) * 4),1);transform:translateY(calc(var(--hero-progress) * -18px))}
+  .spatialResolve{bottom:7vh;opacity:clamp(0,calc((var(--hero-progress) - .48) * 4),1)}
+  .spatialResolve p{max-width:34ch}
+  .studioStandard{min-height:auto;padding-top:110px;padding-bottom:110px}
+  .kwekerSequence{padding-bottom:90px}
+  .kwekerFrames{min-height:105svh}
+  .kwekerFrames figure:first-child{width:100%;height:60svh;transform:rotate(-1deg)}
+  .kwekerFrames figure:nth-child(2){width:64%;height:46svh;margin-top:-26svh;transform:rotate(3deg)}
+  .kwekerFrames figure:nth-child(3){width:44%;margin-top:-9svh;transform:rotate(-4deg)}
+  .kwekerGallery{min-height:700px}
+  .kwekerGallery figure:first-child{left:var(--pad);width:68vw}
+  .kwekerGallery figure:nth-child(2){right:var(--pad);width:38vw;top:34vh}
+  .kwManifesto{min-height:auto;padding-top:100px;padding-bottom:110px}
+  .kwSystem{min-height:auto;padding-top:100px;padding-bottom:110px;grid-template-columns:28px minmax(0,1fr)}
+  .kwSystem header{min-width:0}.kwSystem h2{font-size:14vw;overflow-wrap:anywhere}
+  .kwSystemPoster{width:calc(100% - 18px);box-shadow:18px 18px 0 #080808}
+  .kwClose{min-height:auto;padding-top:110px;padding-bottom:110px}
+  .kwClose h2{font-size:14vw;overflow-wrap:anywhere}
+  [data-motion="title"],[data-motion="copy-left"],[data-motion="image-left"]{--motion-from:translateX(-10px)}
+  [data-motion="copy"],[data-motion="copy-right"],[data-motion="image-right"]{--motion-from:translateX(10px)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .spatialHero{height:100svh}
+  .spatialResolve{display:none}
+  .motionReady [data-motion][data-reveal]{opacity:1!important;transform:none!important;clip-path:none!important}
+}
