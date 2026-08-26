@@ -33,7 +33,7 @@ test.describe("responsive behavior", () => {
     test(`homepage fits a ${width}px viewport`, async ({ page }) => {
       await page.setViewportSize({ width, height: 844 });
       await page.goto("/");
-      await expect(page.getByRole("heading", { name: /Digital worlds, built to move/i })).toBeVisible();
+      await expect(page.getByRole("heading", { name: /Distinct by design. Exact in production./i })).toBeVisible();
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow).toBeLessThanOrEqual(0);
     });
