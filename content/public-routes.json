@@ -1,0 +1,13 @@
+[
+  { "path": "/", "changeFrequency": "weekly", "priority": 1.0 },
+  { "path": "/work", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/work/de-kweker", "changeFrequency": "monthly", "priority": 0.8 },
+  { "path": "/work/kwartier-west", "changeFrequency": "monthly", "priority": 0.8 },
+  { "path": "/services", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/services/web-design", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/services/identity", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/services/digital-care", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/process", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/contact", "changeFrequency": "monthly", "priority": 0.7 },
+  { "path": "/nl/webdesign-brugge", "changeFrequency": "monthly", "priority": 0.7 }
+]

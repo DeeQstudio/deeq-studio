@@ -1,13 +1,34 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ContactCta } from "@/components/contact-cta";
+import { JsonLd } from "@/components/json-ld";
+import { ContactStage } from "@/components/contact-stage";
+import { identityAssets } from "@/content/identity-assets";
 import { projects } from "@/content/projects";
 import { pageMetadata } from "@/lib/metadata";
+import { projectSchema } from "@/lib/schema";
+const p=projects["kwartier-west"];
+export const metadata: Metadata=pageMetadata({title:"Kwartier West Website Case",description:"A digital platform connecting Kwartier West's scenes, events and booking.",path:"/work/kwartier-west",image:p.ogImage});
+export default function Page(){return <><JsonLd data={projectSchema(p)}/><article className="case caseKw">
+  <section className="caseKwHero"><Image src={p.image} alt={p.imageAlt} fill priority sizes="100vw"/><div className="kwHeroVeil"/><div className="caseCounter">02 / 02</div><div className="kwHeroType"><Image src="/media/kwartier-west-wordmark.png" alt="Kwartier West" width={804} height={185}/><span>{p.eyebrow}</span><a href={p.liveUrl} target="_blank" rel="noreferrer">Live platform</a></div><b className="kwEdge" aria-hidden="true">WEST / WEST / WEST / WEST</b></section>
+  <section className="kwChoice"><small>The structure</small><div><span>TEKNO</span><i>or</i><span>HIP HOP</span></div><p>Different scenes keep their own entrance. Events and booking stay connected underneath.</p></section>
+  <section className="kwEditorial"><div><small>The assignment</small><h2>Do not flatten the scene into a corporate website.</h2><p>Kwartier West already had a strong visual language. DeeQ translated it into a digital structure where the collective can grow while each scene keeps its own character.</p></div><figure><Image src="/media/kwartier-west-social.jpg" alt="Kwartier West event visual" fill sizes="(max-width: 980px) 100vw, 46vw"/></figure></section>
 
-const project = projects["kwartier-west"];
-export const metadata: Metadata = pageMetadata({ title: "Kwartier West Website Case", description: "A digital platform connecting Kwartier West's scenes, events and booking.", path: "/work/kwartier-west", image: project.ogImage });
+  <section className="caseIdentity caseIdentityKw caseIdentityPublished caseIdentityKwP5" aria-labelledby="kw-identity-title">
+    <header data-reveal-soft><small>Identity / live system</small><h2 id="kw-identity-title">The collective keeps<br/>its own pressure.</h2></header>
+    <figure className="caseIdentityProjectFavicon caseIdentityProjectFaviconKw" data-reveal-soft><div><Image src={identityAssets.kwartierWest.favicon} alt="Kwartier West favicon" width={512} height={512}/></div><figcaption>Current browser mark</figcaption></figure>
+    <figure className="caseIdentityWordmark caseIdentityWordmarkPublished" data-reveal-soft><div><Image src={identityAssets.kwartierWest.wordmark} alt="Kwartier West wordmark" width={804} height={185}/></div><figcaption>Published wordmark / live system</figcaption></figure>
+    <div className="caseIdentityKwUrl" data-reveal-soft><span>kwartierwest.be</span><small>live platform</small></div>
+    <p className="caseIdentityNote" data-reveal-soft>The wordmark and KW favicon stay fixed while events, photography and both scenes can change the surrounding pace.</p>
+  </section>
 
-export default function KwartierWestPage() {
-  return <><article className="kwCase"><section className="kwHero"><Image src={project.image} alt="Kwartier West visual world" fill priority sizes="100vw" /><div className="kwHeroLogo"><Image src="/media/kwartier-west-wordmark.png" alt="Kwartier West" width={804} height={185} /><p>Collective · events · booking</p><a href={project.liveUrl} target="_blank" rel="noreferrer">Visit live platform ↗</a></div></section><section className="kwManifesto"><div><span>Kies je kant</span><strong>TEKNO</strong><strong>HIP HOP</strong></div><div><h1>A platform for different scenes—not one flattened audience.</h1><p>Kwartier West already had a strong visual language. DeeQ translated it into a structure where Tekno and Hip hop keep their own entrance, while events and booking remain connected underneath.</p></div></section><section className="kwSystem" aria-labelledby="kw-system-title"><div className="kwSystemRail" aria-hidden="true"><span>01</span><span>02</span><span>03</span></div><header><p>Kwartier West / digital system</p><h2 id="kw-system-title">One backbone.<br />Different entrances.</h2></header><div className="kwSystemPoster"><Image src="/media/kwartier-west-social.jpg" alt="Kwartier West event visual" fill sizes="(max-width: 820px) 84vw, 44vw" /><b>EVENTS</b><span>BOOKING / SCENES / COLLECTIVE</span></div></section><section className="kwClose"><p>What DeeQ connected</p><h2>Identity, events and booking, without making the scene feel corporate.</h2></section></article><nav className="nextCase lightNext" aria-label="Next project"><span>Next project</span><Link href="/work/de-kweker">De Kweker →</Link></nav><ContactCta /></>;
-}
+  <section className="kwSourceProof" aria-labelledby="kw-source-title">
+    <div className="kwSourceIntro"><small>kwartierwest.be / production</small><h2 id="kw-source-title">Tekno. Hip hop.<br/>One booking desk.</h2><p>Real output from the production build: the scene entrance, booking route and mobile composition.</p></div>
+    <figure className="kwSourceHome"><Image src="/media/source-proof/kw-home-desktop.webp" alt="Actual Kwartier West homepage rendered from the production source" width={1600} height={1000} sizes="(max-width: 980px) calc(100vw - 56px), 94vw"/><figcaption>Home / Tekno + Hip hop</figcaption></figure>
+    <div className="kwSourceLower">
+      <div className="kwSourceBookingCopy"><span>Booking</span><p>Single artists, multiple artists, a complete scene or a takeover all use the same operational route.</p></div>
+      <figure className="kwSourceBooking"><Image src="/media/source-proof/kw-booking-desktop.webp" alt="Actual Kwartier West booking route rendered from the production source" width={1600} height={1000} sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 980px) 60vw, 58vw"/><figcaption>Booking desk / production route</figcaption></figure>
+      <figure className="kwSourceMobile"><Image src="/media/source-proof/kw-home-mobile.webp" alt="Actual Kwartier West mobile homepage rendered from the production source" width={430} height={932} sizes="(max-width: 700px) 70vw, (max-width: 980px) 28vw, 23vw"/><figcaption>Home / mobile</figcaption></figure>
+    </div>
+  </section>
+</article><nav className="nextWorld nextWorldLight" aria-label="Next project"><span>Next world</span><Link href="/work/de-kweker">De Kweker</Link></nav><ContactStage/></>}

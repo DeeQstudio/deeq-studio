@@ -1,4 +1,14 @@
 import type { MetadataRoute } from "next";
+import publicRoutes from "@/content/public-routes.json";
 import { site } from "@/content/site";
-const routes=["/","/work","/work/de-kweker","/work/kwartier-west","/services","/services/web-design","/services/identity","/services/digital-care","/process","/contact","/nl/webdesign-brugge"] as const;
-export default function sitemap():MetadataRoute.Sitemap{return routes.map(path=>({url:path==="/"?site.url:`${site.url}${path}`,changeFrequency:path.startsWith("/work/")?"yearly":"monthly"}))}
+
+type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return publicRoutes.map(({ path, changeFrequency, priority }) => ({
+    url: path === "/" ? site.url : `${site.url}${path}`,
+    lastModified: new Date("2026-08-28"),
+    changeFrequency: changeFrequency as ChangeFrequency,
+    priority,
+  }));
+}

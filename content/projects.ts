@@ -18,7 +18,7 @@ export const projects: Record<Project["slug"], Project> = {
     liveUrl: "https://www.kwkr.be/",
     image: "/media/kwkr-hero.webp",
     imageAlt: "De Kweker digital platform",
-    ogImage: "/media/kwkr-hero.webp",
+    ogImage: "/media/kwkr-hero.webp"
   },
   "kwartier-west": {
     slug: "kwartier-west",
@@ -28,6 +28,6 @@ export const projects: Record<Project["slug"], Project> = {
     liveUrl: "https://kwartierwest.be/",
     image: "/media/kwartier-west-og.webp",
     imageAlt: "Kwartier West platform",
-    ogImage: "/media/kwartier-west-social.jpg",
-  },
+    ogImage: "/media/kwartier-west-social.jpg"
+  }
 };

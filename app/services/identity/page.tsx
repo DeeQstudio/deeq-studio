@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { ServicePage } from "@/components/service-page";
-import { pageMetadata } from "@/lib/metadata";
-export const metadata: Metadata = pageMetadata({title:"Brand Identity & Content Design",description:"Brand identity, visual direction and content systems by DeeQ Studio.",path:"/services/identity"});
-export default function Page(){return <ServicePage eyebrow="Identity & content" title="Identity that" accent="holds together." intro="Logo, type, colour, motion and content should reinforce each other—not feel like unrelated deliverables." heading="Recognition before decoration." paragraphs={["Identity work makes every public touchpoint feel like it belongs to the same organisation.","The system has to survive browser icons, social crops, light and dark contexts, campaign work and daily use—not only one polished mockup."]} />}
+import type { Metadata } from "next";import {ServiceDetail} from "@/components/service-detail";import {pageMetadata} from "@/lib/metadata";
+export const metadata:Metadata=pageMetadata({title:"Brand Identity & Content Design",description:"Brand identity, visual direction and content systems by DeeQ Studio.",path:"/services/identity"});
+export default function Page(){return <ServiceDetail eyebrow="Identity & content" title="Identity that" accent="still works at 16px." intro="A wordmark can be huge. A favicon cannot. Both still have to feel like the same identity." heading="The smallest surface still counts." paragraphs={["Wordmark, monogram, type, colour and motion are developed as one usable set.","The same identity needs to survive browser tabs, social crops, light and dark contexts and day-to-day production."]} markers={["Direction","Type","Colour","Motion"]}/>}

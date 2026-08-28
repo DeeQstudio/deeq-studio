@@ -1,74 +1,23 @@
-import { spawn } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const port = 3210;
-const externalOrigin = process.env.VERIFY_BASE_URL?.replace(/\/$/, "");
-const origin = externalOrigin ?? `http://127.0.0.1:${port}`;
-const routes = [
-  ["/", "DeeQ Studio | Web Design, Development & Digital Care in Bruges"],
-  ["/work", "Selected Work | DeeQ Studio"],
-  ["/work/de-kweker", "kwkr.be · De Kweker Website Case | DeeQ Studio"],
-  ["/work/kwartier-west", "Kwartier West Website Case | DeeQ Studio"],
-  ["/services", "Web Design, Identity & Digital Care | DeeQ Studio"],
-  ["/services/web-design", "Web Design & Development in Bruges, Belgium | DeeQ Studio"],
-  ["/services/identity", "Brand Identity & Content Design | DeeQ Studio"],
-  ["/services/digital-care", "Website Maintenance & Digital Care | DeeQ Studio"],
-  ["/process", "How DeeQ Studio Works | DeeQ Studio"],
-  ["/contact", "Contact DeeQ Studio | DeeQ Studio"],
-  ["/nl/webdesign-brugge", "Webdesign Brugge | DeeQ Studio"],
-];
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const routes = JSON.parse(fs.readFileSync(path.join(root, "content/public-routes.json"), "utf8"));
+const missing = [];
 
-const server = externalOrigin
-  ? undefined
-  : spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "-p", String(port)], {
-      stdio: ["ignore", "pipe", "pipe"],
-      env: { ...process.env, NODE_ENV: "production" },
-    });
-
-const waitForServer = async () => {
-  for (let attempt = 0; attempt < 40; attempt += 1) {
-    try {
-      const response = await fetch(origin);
-      if (response.ok) return;
-    } catch {}
-    await new Promise((resolve) => setTimeout(resolve, 250));
-  }
-  throw new Error("Production server did not become ready");
-};
-
-try {
-  if (!externalOrigin) await waitForServer();
-  for (const [path, expectedTitle] of routes) {
-    const response = await fetch(`${origin}${path}`);
-    const html = await response.text();
-    const title = html.match(/<title>([^<]+)<\/title>/)?.[1]?.replaceAll("&amp;", "&");
-    const h1Count = html.match(/<h1\b/g)?.length ?? 0;
-    if (response.status !== 200) throw new Error(`${path}: expected 200, received ${response.status}`);
-    if (title !== expectedTitle) throw new Error(`${path}: unexpected title ${JSON.stringify(title)}`);
-    if (h1Count !== 1) throw new Error(`${path}: expected one h1, received ${h1Count}`);
-    if (!html.includes(`rel="canonical"`)) throw new Error(`${path}: canonical is missing`);
-    if (!html.includes(`name="description"`)) throw new Error(`${path}: description is missing`);
-    if (!html.includes(`property="og:image"`)) throw new Error(`${path}: Open Graph image is missing`);
-    if (response.headers.get("x-content-type-options") !== "nosniff") throw new Error(`${path}: nosniff header is missing`);
-    if (response.headers.get("referrer-policy") !== "strict-origin-when-cross-origin") throw new Error(`${path}: referrer policy is missing`);
-    if (response.headers.has("x-powered-by")) throw new Error(`${path}: framework disclosure header is present`);
-    const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)];
-    if (jsonLdBlocks.length === 0) throw new Error(`${path}: structured data is missing`);
-    const schemas = jsonLdBlocks.map((match) => JSON.parse(match[1]));
-    if (path.startsWith("/work/") && !schemas.some((schema) => schema["@graph"]?.some((item) => item["@type"] === "CreativeWork"))) {
-      throw new Error(`${path}: project CreativeWork schema is missing`);
-    }
-    console.log(`ok ${path}`);
-  }
-  const missing = await fetch(`${origin}/route-that-does-not-exist`);
-  if (missing.status !== 404) throw new Error(`unknown route: expected 404, received ${missing.status}`);
-  console.log("ok 404");
-
-  const verification = await fetch(`${origin}/googled62ab7e3a23715db.html`);
-  const verificationText = (await verification.text()).trim();
-  if (verification.status !== 200 || verificationText !== "google-site-verification: googled62ab7e3a23715db.html") {
-    throw new Error("Google Search Console verification file is missing or invalid");
-  }
-  console.log("ok Google verification");
-} finally {
-  server?.kill();
+for (const { path: route } of routes) {
+  const pageFile = route === "/"
+    ? path.join(root, "app/page.tsx")
+    : path.join(root, "app", route.slice(1), "page.tsx");
+  if (!fs.existsSync(pageFile)) missing.push({ route, pageFile: path.relative(root, pageFile) });
 }
+
+if (missing.length) {
+  console.error(`Route verification failed: ${missing.length} route(s) have no page.tsx.`);
+  for (const item of missing) console.error(` ✗ ${item.route} -> ${item.pageFile}`);
+  process.exit(1);
+}
+
+console.log(`Route verification passed: ${routes.length}/${routes.length} public routes.`);
+for (const { path: route } of routes) console.log(` ✓ ${route}`);

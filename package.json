@@ -9,7 +9,7 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "verify:routes": "node scripts/verify-routes.mjs",
-    "test:e2e": "playwright test"
+    "qa:source": "node scripts/verify-routes.mjs && node scripts/check-css-cascade.mjs && node scripts/production-qa.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

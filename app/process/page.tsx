@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { ContactCta } from "@/components/contact-cta";
-import { PageHero } from "@/components/page-hero";
+import { EditorialHero } from "@/components/editorial-hero";
+import { ContactStage } from "@/components/contact-stage";
 import { pageMetadata } from "@/lib/metadata";
-
-export const metadata: Metadata = pageMetadata({title:"How DeeQ Studio Works",description:"A clear web design and development process from direction to production and handoff.",path:"/process"});
-const steps=["Bring the rough version","Direction before production","Build in the open","QA like it is live","Handoff or ongoing care"];
-export default function ProcessPage(){return <><PageHero eyebrow="How it works" title="Less mystery." accent="More progress." lead="A senior process should reduce the amount of project management the client has to do—not create more of it."/><section className="processList processTrack"><header><p className="eyebrow">The process</p><h2>Clear enough to feel easy.</h2><div className="processSignal" aria-hidden="true"><i /><span>Direction</span><span>Production</span></div></header><ol>{steps.map((step,index)=><li key={step} style={{"--step":index} as React.CSSProperties}><span>0{index+1}</span><h3>{step}</h3><p>{["An existing site, a rough idea or the bottleneck is enough. First we define the real problem.","Structure, priorities and visual direction become tangible while large decisions are still easy to change.","You see real screens and real progress. Feedback lands before a mystery reveal at the end.","Responsive behaviour, keyboard use, motion preferences, metadata, links and edge cases are checked before launch.","Take the keys with a clean handoff or keep DeeQ close. Ownership remains clear either way."][index]}</p><i className="stepNode" aria-hidden="true" /></li>)}</ol></section><ContactCta>You bring the problem. We make the next step clear.</ContactCta></>}
+export const metadata:Metadata=pageMetadata({title:"How We Work",description:"A clear web design and development process from direction to production and handoff.",path:"/process"});
+const steps=[
+ ["01","Start with what exists","Send the current site, rough idea or problem. First we decide what actually needs to change."],
+ ["02","Set direction","Structure, priorities and visual direction are decided while the big choices are still easy to change."],
+ ["03","Work in the browser","You review real screens and responsive behaviour while the work is being built, not at a final reveal."],
+ ["04","Break it before launch","Keyboard use, motion preferences, metadata, links, layouts and edge cases are checked before release."],
+ ["05","Hand over cleanly","Take the code and accounts, or keep DeeQ involved for updates. Ownership stays yours either way."]
+];
+export default function Page(){return <><EditorialHero eyebrow="How DeeQ works" title="See it early." accent="Fix it early." lead="Direction becomes real screens quickly. Feedback happens while changes are still easy, then QA happens before launch."/><section className="processSpine"><div className="processSpineLine" aria-hidden="true"/>{steps.map(([n,t,c],i)=><article className={`processStep step${i+1}`} key={n} data-reveal><small>{n}</small><h2>{t}</h2><p>{c}</p></article>)}</section><ContactStage kicker="Send what already exists."/></>}

@@ -1,2 +1,1 @@
-import Link from "next/link";
-export default function NotFound(){return <section className="notFound"><p>Page not found</p><h1>404.</h1><Link href="/">Back to DeeQ Studio</Link></section>}
+import Link from "next/link";export default function NotFound(){return <section className="notFound"><span>404</span><h1>Wrong turn.</h1><p>There is nothing at this address.</p><Link href="/">Back to DeeQ</Link></section>}
